@@ -17,5 +17,10 @@ function adjustLayout(){
     $('.timeline .panel').each(function(index){
         var newX = panelWidth * index;
         $(this).css('left',newX+'px');
+
+        var newLabel = $(this).find('.label').html();
+        $('.timeline nav').append();('<a href="#">'+newLabel+'</a>');
+
+
     });
 }
