@@ -11,7 +11,7 @@ body { margin: 0; padding: 0; font-size: 16px; font-family: Arial;}
     text-align: center;
     width: 100%;
     margin: 0px;
-    border-bottom: 1px solid rgba(247, 0, 255, 0.2);
+    border-bottom: 1px solid rgba(155, 158, 160, 0.2);
     font-size: 1.2em;
     z-index: 1;
     text-transform: capitalize;
@@ -38,9 +38,9 @@ body { margin: 0; padding: 0; font-size: 16px; font-family: Arial;}
 .timeline .background_slider img{ position: absolute; top: 0px; left: 0px;}
 
 .timeline .panel_slider{width: 100%; position: absolute;}
-.timeline .panel {width: 340px; position: absolute;}
+.timeline .panel {width: 340px; background-color: rgb(0, 47, 255); position: absolute;}
 
-.timeline .panel_content{ padding: 75px 10px 0px 40px; position: relative;}
+.timeline .panel_content{ padding: 75px 10px 0px 40px; background-color:rgba(247, 0, 255, 0.2); position: relative;}
 .timeline .panel_content h2 { font-size: 1em; color: #fff; margin: 0px 0px 8px 0px;}
 .timeline .panel_content p { margin: 0px 0px 1em 0px; position: relative; color: rgba(241, 241, 241, .55); }
 .timeline .panel_content .label { position: absolute; top: 12px; right: 0px; font-size: 4em; color: rgba(255, 255, 255, 0.2); text-align: right; font-family: Georgia, 'Times New Roman', Times, serif;}
@@ -51,7 +51,7 @@ body { margin: 0; padding: 0; font-size: 16px; font-family: Arial;}
     font-size: .9em;
     display: inline-block;
     padding: 5px 10px;
-    border-color: lightcoral;
+    border-color: rgb(2, 162, 255);
     border-style: solid;
     border-left-width: 5px;
     border-right-width: 5px;
