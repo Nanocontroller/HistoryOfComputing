@@ -101,7 +101,7 @@ const renderButtons = (data, i) => {
 
   if (data.system1 !== '') {
     popup += `
-    <div class="popup-section">
+    <div >
     <h3>System</h3>
     ${renderDiv(data.system1, data.system1img)}
     ${data.system2 !== '' ? renderDiv(data.system2, data.system2img) : ''}

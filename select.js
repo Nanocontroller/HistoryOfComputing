@@ -13,7 +13,7 @@ async function addDecade(selectedDecade) {
     let isSelected = decade == selectedDecade ? "selected" : ""
     if (decade !== undefined) {
       let li = `<li  onclick="updateName(this)" class="${isSelected}"><a href=#section-${decade}>${decade}</a></li>`
-      options.insertAdjacentHTML("beforeend", li)
+      options.insertAdjacentHTML("beforebegin", li)
     }
   })
 }
