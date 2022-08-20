@@ -30,11 +30,11 @@
 .content{
  display: none;
  padding: 20px;
- background: #1f2051;
+ background: #1d1651;
 }
 .options li a {
  text-decoration: none;
- color: #118acb;
+ color: #b8e2de;
 }
 .wrapper.active .content{
  display: block;
@@ -94,5 +94,5 @@
 }
 .options li:hover, li.selected{
  border-radius: 5px;
- background: #f2f2f2;
+ background: #118acb;
 }

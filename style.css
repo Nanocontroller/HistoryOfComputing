@@ -53,13 +53,13 @@ body {
 }
 
 .main-heading {
-  margin: 0 0 4vh 4vh;
-  font-size: 3vw;
+  margin: 0 0vh 4vh 4vh;
+  font-size:68px;
 }
 
 .decade-intro-img {
   width: 60vh;
-  height: 66vh;
+  height: 60vh;
   object-fit: none;
 }
 
@@ -68,7 +68,7 @@ body {
 }
 
 .decade-main img {
-  width: 52vh;
+  width: 100%;
   height: 35vh;
   object-fit:cover;
 }
@@ -87,7 +87,8 @@ body {
 #overlay {
   width: 100%;
   height: 100%;
-  background: #1f2051d1;
+  background: #1d1651;
+  opacity:93%;
   position: absolute;
   top: 0;
   display: none;
@@ -101,12 +102,13 @@ body {
 }
 
 .circle {
-  width: 16px;
-    height: 15px;
-    background: #118acb;
-    display: block;
-    border-radius: 50%;
-    margin-right: 6px;
+  width: 24px;
+  height: 24px;
+  margin-top: 10px;
+  background: #118acb;
+  display: block;
+  border-radius: 50%;
+  margin-right: 12px;
 }
 
 .decade-button {
@@ -114,36 +116,39 @@ body {
   background: transparent;
   color: #b8e2de;
   cursor: pointer;
-  font-size: 16px;
-  letter-spacing: 4px;
+  font-size: 14px;
+  letter-spacing: 1.4px;
   margin: 0px 3vw;
   font-weight: 600;
   text-decoration: none;
 }
 
-
 .decade-button:hover {
   color: #118acb;
 }
-
 
 img {
   width: 100%;
 }
 
+.blend {
+  color: #118acb;
+  opacity:85%;
+  mix-blend-mode: screen;
+}
 #data-container p {
-  margin: 0.7vw 0vw;
-  font-size: 2vh;
+  margin: 1.4vw 0vw 1vw 0vw;
+  font-size: 19px;
   width: 100%;
   min-width: 27vw;
-  line-height: 2.6vh;
+  line-height: 3.25vh;
 }
 
 #data-container .decade-intro-p {
-  font-size: 3.0vh;
+  font-size: 24px;
   line-height: 1.25;
-  margin-top: 6vh;
-  min-width: 46vh;
+  margin-top: 72px;
+  min-width: 60vh;
 }
 
 .decade-intro {
@@ -154,7 +159,7 @@ img {
 
 .decade-intro>* {
   width: 100%;
-  padding: 1vw;
+  padding: 0.5vw;
   padding-bottom: 0px;
 }
 
@@ -166,9 +171,9 @@ img {
 }
 
 .decade-intro-main h1 {
-  font-size: 2.7vh;
+  font-size:36px;
   display: flex;
-  margin: 1.5vw 0vw 0.5vw 0vw;
+  margin: 1.5vw 0vw 1vw 0vw;
 }
 
 .read-more-btn {
@@ -185,7 +190,7 @@ img {
   height: 16px;
   border: 1px solid #118acb;
   display: block;
-  margin-right: 12px;
+  margin-right: 24px;
 }
 
 .read-more-icon::before {
@@ -193,31 +198,32 @@ img {
   width: 14px;
   margin-top: -6px;
   height: 14px;
-  background: #1f2051;
+  background: #1d1651;
   border: 1px solid #118acb;
   display: block;
   margin-left: 3px;
 }
 
 .decade-main h2 {
-  margin: 2vw 0vw 0.33vw 0vw;
-  font-size: 1.99vh;
+  margin: 2.2vw 0vw 1vw 0vw;
+  font-size: 28px;
 }
 
 .decade-main div {
   border-bottom: 1px solid #118acb;
   border-top: 1px solid #118acb;
-  padding: 0.80vw;
+  padding: 0.60vw 0vw;
   cursor: pointer;
   text-transform: capitalize;
-  font-size: 1.7vh;
+  font-size: 19px;
 }
 .header {
   position: unset;
   width: 100%;
   top: 0;
   padding-top: 24px;
-  background: #1f2051;
+  background: #1d1651;
+  z-index:1;
 }
 #popup-container {
   width: 75%;
@@ -232,16 +238,18 @@ img {
   box-sizing: border-box;
   height: 100vh;
   overflow: auto;
+  z-index:2;
 }
 
 #popup-container h3 {
   margin: 6px 0px;
-  margin-top: 3rem;
+  margin-top: 24px;
 }
 
 #popup-container h1 {
   margin: 2.5rem 0px;
   margin-bottom: 0;
+  font-size:60px;
 }
 
 #close-popup {
@@ -267,7 +275,7 @@ img {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: flex-end;
-  padding: 14px 0px;
+  padding: 12px 0px 24px;
   border-bottom: 1px solid #6e6e78;
   border-top: 1px solid #6e6e78;
 }
@@ -275,8 +283,12 @@ img {
 .popup-box h3 {
   padding: 0px 24px;
   margin: 0px;
+  line-height: 25px;
 }
 
+.popup-section{
+  padding-bottom: 36px;
+}
 @media screen and (max-width:968px) {
   #data-container p{
     line-height: 2.99vh;
@@ -286,24 +298,28 @@ img {
   #data-container .decade-intro-p{
     font-size: 2.8vh;
   }
-
+  .header {
+    position: fixed;
+  }
 }
 .wrapper {
   display: none;
 }
 
 @media screen and (max-width:768px) {
+ 
   .popup-box {
     flex-direction: column-reverse;
   }
-  .header {
+  f{
     position: fixed;
+    background: #1d1651;
   }
-  .popup-box h3 {
-    font-size: 15px;
-    line-height: 22px;
-    text-align: justify;
+  .main-heading {
+    margin: 0 0vh 2vh 2vh;
+    font-size:60px;
   }
+
   .decade-main img{
     height: unset;
     width: 100%;
@@ -314,16 +330,50 @@ img {
   .wrapper {
     display: block;
   }
+
   .decade-intro {
     flex-direction: column;
     margin-left: 0;
-
   }
+  #data-container p{
+    margin: 4vw 0vw 4vw 0vw;
+    font-size: 16px;
+  }
+  #data-container .decade-intro-p {
+    font-size: 19px;
+    line-height: 3vh;
+    margin-top: 24px;
+    min-width: 60vw;
+  }
+
+  .decade-intro-main h1 {
+    margin: 2.4vw 0vw 2.4vw 0vw;
+  }
+
+  .decade-data {
+    padding-bottom: 48px;
+  }
+
+  .decade-main h2 {
+    margin: 2vw 0vw 1.2vw 0vw;
+  }
+  
+  .decade-main div {
+    padding: 2.4vw 0vw;
+    font-size: 16px;
+  }
+
   #data-container {
-    margin-top: 110px;
+    margin-top: 250px;
     flex-direction: column;
   }
   .decade-intro-img {
     width: 100%;
+  }
+
+  .popup-box h3 {
+    font-size: 15px;
+    line-height: 22px;
+    text-align: justify;
   }
 }

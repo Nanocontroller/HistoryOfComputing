@@ -38,7 +38,7 @@ const createData = (item, i) => {
     <div class='decade-intro' id=section-${item.year}>
       <div class='decade-intro-main' >
         <h1><span class="circle"></span>${item.year + 's'}</h1>
-        <img class='decade-intro-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
+        <img class='decade-intro-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
       </div>
       <p class='decade-intro-p'>${item.feature}</p>
     </div>
@@ -49,7 +49,7 @@ const createData = (item, i) => {
     <div class='decade-data'>
       <div class='decade-main'>
       <h2>${item.year}</h2>
-      <img class='decade-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
+      <img class='decade-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
       <p>${item.feature}</p>
       ${renderButtons(item, i)}
       </div>
@@ -67,11 +67,21 @@ const renderDiv = (title, image) => {
 }
 const renderButtons = (data, i) => {
   // console.log(data.year)
-  let popup = `<div>`
+  let popup = `<div>
+  <h1>${data.year}</h1>
+  `
+  if (data.person1 !== '') {
+    popup += `
+    <div class="popup-section">
+    <h3>People</h3>
+    ${renderDiv(data.person1, data.person1img)}
+    ${data.person2 !== '' ? renderDiv(data.person2, data.person2img) : ''}
+  </div>
+    `
+  }
   if (data.event1 !== '') {
     popup += `
-    <div>
-      <h1>${data.year}</h1>
+    <div class="popup-section">
       <h3>Events</h3>
       ${renderDiv(data.event1, data.event1img)}
       ${data.event2 !== '' ? renderDiv(data.event2, data.event2img) : ''}
@@ -81,8 +91,8 @@ const renderButtons = (data, i) => {
 
   if (data.software1 !== '') {
     popup += `
-    <div>
-    <h3>software</h3>
+    <div class="popup-section">
+    <h3>Software</h3>
     ${renderDiv(data.software1, data.software1img)}
     ${data.software2 !== '' ? renderDiv(data.software2, data.software2img) : ''}
   </div>
@@ -91,8 +101,8 @@ const renderButtons = (data, i) => {
 
   if (data.system1 !== '') {
     popup += `
-    <div>
-    <h3>software</h3>
+    <div class="popup-section">
+    <h3>System</h3>
     ${renderDiv(data.system1, data.system1img)}
     ${data.system2 !== '' ? renderDiv(data.system2, data.system2img) : ''}
     ${data.system3 !== '' ? renderDiv(data.system3, data.system3img) : ''}
@@ -101,15 +111,7 @@ const renderButtons = (data, i) => {
   </div>
     `
   }
-  if (data.person1 !== '') {
-    popup += `
-    <div>
-    <h3>Person</h3>
-    ${renderDiv(data.person1, data.person1img)}
-    ${data.person2 !== '' ? renderDiv(data.person2, data.person2img) : ''}
-  </div>
-    `
-  }
+ 
   popup += '</div>'
   popupData.push(popup)
   if (data.event1 !== '' || data.software1 !== '' || data.system1 !== '' || data.person1 !== '') {
