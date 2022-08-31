@@ -6,7 +6,7 @@ To update content to the website, there are 2 main steps:
 1) Edit content on google spreadsheet and prepare images
 2) Update files to the project folder 
 
-## The followings are details explaination of each step:
+## The followings are detailed explanations of each step:
 1) Edit content on google spreadsheet:
 	* **Edit text**
 		- *d-text* (summary text for the decade): Max 250 characters 
