@@ -8,12 +8,12 @@ To update content to the website, there are 2 main steps:
 
 The followings are details explaination of each step.
 1) Edit content on google spreadsheet
-	 * **Fill in the text**
+* **Fill in the text**
 		- d-text: max 250 characters 
 		- feature: max 250 characters
-	 **Fill in image**
+* **Fill in image**
 		- image preparation: [template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1)
-	1.3)**Export**
+* **Export**
 		- google spreadsheet -> Export JSON
 
 2) Update files to the project folder:
