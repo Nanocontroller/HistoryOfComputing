@@ -11,13 +11,18 @@ The followings are details explaination of each step.
 	* **Edit text**
 		- *d-text* (summary text for the decade): Max 250 characters 
 		- *feature* (description text for the specific year): Max 250 characters
-	* **Edit in image**
-		- image preparation: use [template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) 
-		- put image file name to spreadsheet
+		- *event*: Max 250 characters
+		- *system*: Max 250 characters
+		- *person*: Max 250 characters
+	* **Edit image**
+		- image preparation [template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) 
+			- decade image use square template
+			- feature image use 16x9 ratio template
+		- fill image file name to spreadsheet
 	* **Export**
 		- google spreadsheet -> Export JSON
 
 2) Update files to the project folder:
-	1. Replace data.json
+	1. Replace existing data.json file
 	2. Upload new images to the folder
 
