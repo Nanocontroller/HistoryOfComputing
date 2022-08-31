@@ -7,7 +7,7 @@ To update content to the website, there are 2 main steps:
 2) Update files to the project folder 
 
 The followings are details explaination of each step:
-1)Edit content on google spreadsheet:
+	1)Edit content on google spreadsheet:
 	* **Edit text**
 		- *d-text* (summary text for the decade): Max 250 characters 
 		- *feature* (description text for the specific year): Max 250 characters
@@ -22,7 +22,7 @@ The followings are details explaination of each step:
 	* **Export**
 		- google spreadsheet -> Export JSON (video demonstration)
 
-2)Update files to the project folder:
+	2)Update files to the project folder:
 	1. Replace existing data.json file
 	2. Upload new images to the folder
 
