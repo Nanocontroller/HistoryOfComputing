@@ -15,7 +15,7 @@ To update content to the website, there are 2 main steps:
 		- *system*: Max 250 characters
 		- *person*: Max 250 characters
 	* **Edit image**
-		- image preparation [template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) 
+		- image preparation [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
 			- decade image use square template
 			- feature image use 16x9 ratio template
 		- fill image file name to spreadsheet
