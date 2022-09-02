@@ -12,14 +12,11 @@ const handleOnload = async () => {
     // console.log(LetItem)
 
     if (item.year % 10 === 0) {
-      let decadeButton = document.createElement('a')
-      console.log(decadeButton)
+      let decadeButton = document.createElement('button')
 
       decadeButton.innerHTML = item.year
       decadeButton.className = 'decade-button'
-      decadeButton.href = `#section-${item.year}`
-      decadeButton.onclick = (e) =>  handleDecadeClick(e)
-      
+      decadeButton.onclick = () =>  document.getElementById(`section-${item.year}`).scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
       DECADE_CONTAINER.appendChild(decadeButton)
     }
     createData(item, i)
@@ -65,6 +62,7 @@ const renderDiv = (title, image) => {
   </div>
   `
 }
+
 const renderButtons = (data, i) => {
   // console.log(data.year)
   let popup = `<div>
@@ -72,7 +70,7 @@ const renderButtons = (data, i) => {
   `
   if (data.person1 !== '') {
     popup += `
-    <div class="popup-section">
+    <div class="popup-section people-section">
     <h3>People</h3>
     ${renderDiv(data.person1, data.person1img)}
     ${data.person2 !== '' ? renderDiv(data.person2, data.person2img) : ''}
@@ -126,6 +124,7 @@ const showPopup = (i) => {
   document.getElementById('popup-data').innerHTML = popupData[i];
   OVERLAY.style.display = 'block'
   popupContainer.style.display = 'block'
+  document.querySelector('body').style.overflow="hidden"
 }
 
 const hidePopup = () => {
@@ -133,6 +132,7 @@ const hidePopup = () => {
   popupContainer.style.display = 'none'
   document.getElementById('popup-data').innerHTML = ''
   OVERLAY.style.display = 'none'
+  document.querySelector('body').style.overflow="auto"
 
 
 }
