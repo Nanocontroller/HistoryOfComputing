@@ -280,10 +280,20 @@ img {
   border-top: 1px solid #6e6e78;
 }
 
+.popup-box h2,
+.popup-box p,
 .popup-box h3 {
   padding: 0px 24px;
   margin: 0px;
   line-height: 25px;
+}
+
+.people-section .popup-box{
+  align-items: unset !important;
+}
+
+.people-section .popup-box h3 {
+  margin-top: 12px !important;
 }
 
 .popup-section{

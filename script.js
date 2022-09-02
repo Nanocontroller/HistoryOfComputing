@@ -62,6 +62,17 @@ const renderDiv = (title, image) => {
   </div>
   `
 }
+const renderPersonDiv = (title, image, subTitle) => {
+  return `
+  <div class='popup-box'>
+    <div class="tittle">
+      <h2>${title}</h2>
+      <p>${subTitle}</p>
+    </div>
+    <img class='popup-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/>
+  </div>
+  `
+}
 const renderButtons = (data, i) => {
   // console.log(data.year)
   let popup = `<div>
@@ -69,10 +80,10 @@ const renderButtons = (data, i) => {
   `
   if (data.person1 !== '') {
     popup += `
-    <div class="popup-section">
+    <div class="popup-section people-section">
     <h3>People</h3>
-    ${renderDiv(data.person1, data.person1img)}
-    ${data.person2 !== '' ? renderDiv(data.person2, data.person2img) : ''}
+    ${renderPersonDiv(data.person1, data.person1img, data.person1Title)}
+    ${data.person2 !== '' ? renderPersonDiv(data.person2, data.person2img, data.person2Title) : ''}
   </div>
     `
   }
