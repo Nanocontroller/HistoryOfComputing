@@ -286,6 +286,14 @@ img {
   line-height: 25px;
 }
 
+.people-section .popup-box{
+  align-items: unset !important;
+}
+
+.people-section .popup-box h3 {
+  margin-top: 12px !important;
+}
+
 .popup-section{
   padding-bottom: 36px;
 }
@@ -298,9 +306,7 @@ img {
   #data-container .decade-intro-p{
     font-size: 2.8vh;
   }
-  .header {
-    position: fixed;
-  }
+ 
 }
 .wrapper {
   display: none;
@@ -375,5 +381,29 @@ img {
     font-size: 15px;
     line-height: 22px;
     text-align: justify;
+  }
+
+  .header {
+    position: sticky;
+  }
+
+  .decade-intro>* {
+    margin-top: 34%;
+  }
+
+  .options li a {
+     width: 100%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .decade-intro>* {
+    margin-top: 46%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .decade-intro>* {
+    margin-top: 60%;
   }
 }
