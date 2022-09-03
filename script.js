@@ -35,7 +35,7 @@ const createData = (item, i) => {
     <div class='decade-intro' id=section-${item.year}>
       <div class='decade-intro-main' >
         <h1><span class="circle"></span>${item.year + 's'}</h1>
-        <img class='decade-intro-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
+        <img class='decade-intro-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
       </div>
       <p class='decade-intro-p'>${item.feature}</p>
     </div>
@@ -46,7 +46,7 @@ const createData = (item, i) => {
     <div class='decade-data'>
       <div class='decade-main'>
       <h2>${item.year}</h2>
-      <img class='decade-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
+      <img class='decade-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
       <p>${item.feature}</p>
       ${renderButtons(item, i)}
       </div>
@@ -63,17 +63,29 @@ const renderDiv = (title, image) => {
   `
 }
 
+const renderPersonDiv = (title, image, subTitle) => {
+  return `
+  <div class='popup-box'>
+    <div class="tittle">
+      <h2>${title}</h2>
+      <p>${subTitle}</p>
+    </div>
+    <img class='popup-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/>
+  </div>
+  `
+}
+
 const renderButtons = (data, i) => {
   // console.log(data.year)
   let popup = `<div>
   <h1>${data.year}</h1>
   `
-  if (data.person1 !== '') {
+  if (data.person1name !== '') {
     popup += `
     <div class="popup-section people-section">
     <h3>People</h3>
-    ${renderDiv(data.person1, data.person1img)}
-    ${data.person2 !== '' ? renderDiv(data.person2, data.person2img) : ''}
+    ${renderPersonDiv(data.person1name, data.person1img, data.person1title)}
+    ${data.person2name !== '' ? renderPersonDiv(data.person2name, data.person2img, data.person2title) : ''}
   </div>
     `
   }
