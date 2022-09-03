@@ -54,23 +54,24 @@ const createData = (item, i) => {
   `
   DATA_CONTAINER.innerHTML += decadeYearData
 }
-const renderDiv = (title, image) => {
+{/* <img class='popup-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/> */}
+const renderDiv = (title) => {
   return `
   <div class='popup-box'>
     <h3>${title}</h3>
-    <img class='popup-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/>
+    <img class='popup-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/event-icon.png'/>
   </div>
   `
 }
 
 const renderPersonDiv = (title, image, subTitle) => {
   return `
-  <div class='popup-box'>
+  <div class='popup-box '>
     <div class="tittle">
       <h2>${title}</h2>
       <p>${subTitle}</p>
     </div>
-    <img class='popup-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/>
+    <img class='popup-people-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/>
   </div>
   `
 }
@@ -91,33 +92,33 @@ const renderButtons = (data, i) => {
   }
   if (data.event1 !== '') {
     popup += `
-    <div class="popup-section">
+    <div class="popup-section event-section">
       <h3>Events</h3>
-      ${renderDiv(data.event1, data.event1img)}
-      ${data.event2 !== '' ? renderDiv(data.event2, data.event2img) : ''}
+      ${renderDiv(data.event1)}
+      ${data.event2 !== '' ? renderDiv(data.event2) : ''}
     </div>
     `
   }
 
   if (data.software1 !== '') {
     popup += `
-    <div class="popup-section">
+    <div class="popup-section event-section">
     <h3>Software</h3>
-    ${renderDiv(data.software1, data.software1img)}
-    ${data.software2 !== '' ? renderDiv(data.software2, data.software2img) : ''}
+    ${renderDiv(data.software1)}
+    ${data.software2 !== '' ? renderDiv(data.software2) : ''}
   </div>
     `
   }
 
   if (data.system1 !== '') {
     popup += `
-    <div >
+    <div class="popup-section event-section">
     <h3>System</h3>
-    ${renderDiv(data.system1, data.system1img)}
-    ${data.system2 !== '' ? renderDiv(data.system2, data.system2img) : ''}
-    ${data.system3 !== '' ? renderDiv(data.system3, data.system3img) : ''}
-    ${data.system4 !== '' ? renderDiv(data.system4, data.system4img) : ''}
-    ${data.system5 !== '' ? renderDiv(data.system5, data.system5img) : ''}
+    ${renderDiv(data.system1)}
+    ${data.system2 !== '' ? renderDiv(data.system2) : ''}
+    ${data.system3 !== '' ? renderDiv(data.system3) : ''}
+    ${data.system4 !== '' ? renderDiv(data.system4) : ''}
+    ${data.system5 !== '' ? renderDiv(data.system5) : ''}
   </div>
     `
   }

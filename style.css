@@ -264,9 +264,20 @@ img {
   letter-spacing: 1.5px;
 }
 
-.popup-img {
+.popup-people-img {
   width: 130px;
-  margin-right: 24px;
+  margin-right: 24px; 
+  margin-bottom: 12px;
+}
+
+.popup-img {
+  width: 10px;
+  height:10px;
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top: 30px;
+  vertical-align: text-top; 
+  opacity:50%;
 }
 
 .popup-box {
@@ -285,6 +296,11 @@ img {
   line-height: 25px;
 }
 
+.event-section .popup-box{
+  align-items: unset !important;
+}
+
+
 .people-section .popup-box{
   align-items: unset !important;
 }
@@ -292,6 +308,8 @@ img {
 .people-section .popup-box h3 {
   margin-top: 12px !important;
 }
+
+
 
 .popup-section{
   padding-bottom: 36px;
@@ -369,7 +387,7 @@ img {
   }
 
   #data-container {
-    margin-top: 250px;
+    margin-top: 100px;
     flex-direction: column;
   }
   .decade-intro-img {
@@ -380,8 +398,19 @@ img {
     font-size: 15px;
     line-height: 22px;
     text-align: justify;
+    padding: 0px 0px;
   }
 
+  .popup-img {
+    width: 0px;
+    height:0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  
   .header {
     position: sticky;
   }
