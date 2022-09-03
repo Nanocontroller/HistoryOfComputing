@@ -9,16 +9,15 @@ To update content to the website, there are 2 main steps:
 ## The followings are detailed explanations of each step:
 1) Edit content on google spreadsheet:
 	* **Edit text**
-		- *d-text* (summary text for the decade): Max 250 characters 
+		- *decade-text* (summary text for the decade): Max 250 characters 
 		- *feature* (description text for the specific year): Max 250 characters
 		- *event*: Max 250 characters
 		- *system*: Max 250 characters
 		- *person*: Max 250 characters
 	* **Edit image**
 		- image preparation [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
-			- decade image use square template
 			- feature image use 16x9 ratio template
-		- fill image file name to spreadsheet
+		- fill feature image file name to spreadsheet (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
 	* **Export**
 		- google spreadsheet -> Export JSON [video demonstration]
 		
