@@ -9,10 +9,10 @@ To update content to the website, there are 3 main steps:
 
 ## The followings are detailed explanations of each step:
 1) Edit images:
-		- *Image preparation* [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
+		- * Image preparation [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
 			- feature image use 16x9 ratio template
-		- *Export featrue image* (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
-		- *Export people icon image* (recommended naming convention: 'th' + name + ".png", example: th_Bair.jpg )
+		- * Export featrue image* (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
+		- * Export people icon image* (recommended naming convention: 'th' + name + ".png", example: th_Bair.jpg )
 2) Edit content on google spreadsheet:
 	* **Edit text**
 		- *decade_text* (summary text for the decade): Max 250 characters 
@@ -22,7 +22,7 @@ To update content to the website, there are 3 main steps:
 		- *personName*
 		- *personTitle*
 	* **Export JSON**
-		- google spreadsheet -> Export JSON [video demonstration](https://drive.google.com/file/d/1ZViOpQgwrdB-Kl7UiYf7MBo0cRa93zLl/view?usp=sharing)
+		- google spreadsheet -> Export JSON [(video instruction)](https://drive.google.com/file/d/1ZViOpQgwrdB-Kl7UiYf7MBo0cRa93zLl/view?usp=sharing)
 		
 2) Update files to the project folder:
 	1. Replace existing data.json file
