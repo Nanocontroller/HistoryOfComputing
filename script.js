@@ -35,7 +35,7 @@ const createData = (item, i) => {
     <div class='decade-intro' id=section-${item.year}>
       <div class='decade-intro-main' >
         <h1><span class="circle"></span>${item.year + 's'}</h1>
-        <img class='decade-intro-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
+        <img class='decade-intro-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/FeatureImages/${item.featureimg}'/>
       </div>
       <p class='decade-intro-p'>${item.featuretext}</p>
     </div>
@@ -46,7 +46,7 @@ const createData = (item, i) => {
     <div class='decade-data'>
       <div class='decade-main'>
       <h2>${item.year}</h2>
-      <img class='decade-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
+      <img class='decade-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/FeatureImages/${item.featureimg}'/>
       <p>${item.featuretext}</p>
       ${renderButtons(item, i)}
       </div>
@@ -71,7 +71,7 @@ const renderPersonDiv = (title, image, subTitle) => {
       <h2>${title}</h2>
       <p>${subTitle}</p>
     </div>
-    <img class='popup-people-img blend' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/>
+    <img class='popup-people-img blend' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/PeopleIcon/${image}'/>
   </div>
   `
 }
@@ -90,7 +90,7 @@ const renderButtons = (data, i) => {
   </div>
     `
   }
-  if (data.event1 !== '') {
+  if (data.event1text !== '') {
     popup += `
     <div class="popup-section event-section">
       <h3>Events</h3>
