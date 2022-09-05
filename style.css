@@ -273,8 +273,8 @@ img {
 .popup-img {
   width: 10px;
   height:10px;
-  margin-right: 60px;
-  margin-left: 60px;
+  margin-right: 0px;
+  margin-left: 120px;
   margin-top: 30px;
   vertical-align: text-top; 
   opacity:50%;

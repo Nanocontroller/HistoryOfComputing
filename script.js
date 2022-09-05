@@ -37,7 +37,7 @@ const createData = (item, i) => {
         <h1><span class="circle"></span>${item.year + 's'}</h1>
         <img class='decade-intro-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
       </div>
-      <p class='decade-intro-p'>${item.feature}</p>
+      <p class='decade-intro-p'>${item.featuretext}</p>
     </div>
     `
     DATA_CONTAINER.innerHTML += decateIntro
@@ -47,7 +47,7 @@ const createData = (item, i) => {
       <div class='decade-main'>
       <h2>${item.year}</h2>
       <img class='decade-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${item.featureimg}'/>
-      <p>${item.feature}</p>
+      <p>${item.featuretext}</p>
       ${renderButtons(item, i)}
       </div>
     </div>
@@ -94,38 +94,38 @@ const renderButtons = (data, i) => {
     popup += `
     <div class="popup-section event-section">
       <h3>Events</h3>
-      ${renderDiv(data.event1)}
-      ${data.event2 !== '' ? renderDiv(data.event2) : ''}
+      ${renderDiv(data.event1text)}
+      ${data.event2text !== '' ? renderDiv(data.event2text) : ''}
     </div>
     `
   }
 
-  if (data.software1 !== '') {
+  if (data.software1text !== '') {
     popup += `
     <div class="popup-section event-section">
     <h3>Software</h3>
-    ${renderDiv(data.software1)}
-    ${data.software2 !== '' ? renderDiv(data.software2) : ''}
+    ${renderDiv(data.software1text)}
+    ${data.software2text !== '' ? renderDiv(data.software2text) : ''}
   </div>
     `
   }
 
-  if (data.system1 !== '') {
+  if (data.system1text !== '') {
     popup += `
     <div class="popup-section event-section">
     <h3>System</h3>
-    ${renderDiv(data.system1)}
-    ${data.system2 !== '' ? renderDiv(data.system2) : ''}
-    ${data.system3 !== '' ? renderDiv(data.system3) : ''}
-    ${data.system4 !== '' ? renderDiv(data.system4) : ''}
-    ${data.system5 !== '' ? renderDiv(data.system5) : ''}
+    ${renderDiv(data.system1text)}
+    ${data.system2text !== '' ? renderDiv(data.system2text) : ''}
+    ${data.system3text !== '' ? renderDiv(data.system3text) : ''}
+    ${data.system4text !== '' ? renderDiv(data.system4text) : ''}
+    ${data.system5text !== '' ? renderDiv(data.system5text) : ''}
   </div>
     `
   }
  
   popup += '</div>'
   popupData.push(popup)
-  if (data.event1 !== '' || data.software1 !== '' || data.system1 !== '' || data.person1 !== '') {
+  if (data.event1text !== '' || data.software1text !== '' || data.system1text !== '' || data.person1name !== '') {
     return `<div onclick='showPopup(${i})' class="read-more-btn"><span class="read-more-icon"></span>Read more</div>`
   } else {
     return ''
