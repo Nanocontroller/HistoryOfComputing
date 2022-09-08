@@ -71,7 +71,7 @@ const renderPersonDiv = (title, image, subTitle) => {
       <h2>${title}</h2>
       <p>${subTitle}</p>
     </div>
-    <img class='popup-people-img blend' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/PeopleIcon/${image}'/>
+    <img class='popup-people-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/PeopleIcon/${image}'/>
   </div>
   `
 }
