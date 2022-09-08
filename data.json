@@ -13,11 +13,11 @@
         "system5text": "",
         "software1text": "",
         "software2text": "",
-        "person1name": "xxx",
-        "person1title": "xxxx",
+        "person1name": "",
+        "person1title": "",
         "person1img": "",
-        "person2name": "xxx",
-        "person2title": "xxxx",
+        "person2name": "",
+        "person2title": "",
         "person2img": "",
         "publicationtext": ""
     },
@@ -107,7 +107,7 @@
         "person2name": "",
         "person2title": "",
         "person2img": "",
-        "publicationtext": "none"
+        "publicationtext": ""
     },
     {
         "year": 1981,
