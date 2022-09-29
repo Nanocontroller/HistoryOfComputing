@@ -1,4 +1,4 @@
-# HistoryOfComputing
+# History Of Computing
 ## Project Description
 
 In this project, we use [a google spreadsheet](https://docs.google.com/spreadsheets/d/1u_ZMDIF0vk718AzKeD3iGzv5BXSBvxNJdlmltV7HGl0/edit?usp=sharing) to store data content. 
@@ -6,6 +6,8 @@ To update content to the website, there are 3 main steps:
 1) Prepare images
 2) Edit content on google spreadsheet
 3) Update files to the project folder 
+
+---
 
 ## The followings are detailed explanations of each step:
 1) Edit images:
