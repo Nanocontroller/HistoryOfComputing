@@ -9,7 +9,7 @@ To update content to the website, there are 3 main steps:
 
 ---
 
-## The followings are detailed explanations of each step:
+## Updating and editing the timeline:
 1) Edit images:
 	* **Image preparation** [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
 		- Export featrue image (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
