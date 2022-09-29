@@ -27,3 +27,10 @@ To update content to the website, there are 3 main steps:
 	1. Replace existing data.json file
 	2. Upload new images to the folder
 
+---
+## Previews 
+
+![desktop screen capture](hoc-desktop.png)
+
+![mobile screen capture](hoc-mobile.jpg)
+
