@@ -32,6 +32,7 @@ There are three main steps to updating content on the website:
 	2. Upload new images to the folder
 
 ---
+
 ## Previews 
 
 ![desktop screen capture](hoc-desktop.png)
