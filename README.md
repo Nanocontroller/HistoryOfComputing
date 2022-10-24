@@ -59,6 +59,8 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 
 ## Previews 
 
+### Desktop
 ![desktop screen capture](hoc-desktop.png)
 
+### Mobile
 ![mobile screen capture](hoc-mobile.jpg)
