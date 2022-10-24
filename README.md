@@ -36,7 +36,7 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 | Year | Decade | feature_Text | feature_Img | event1_Text | xxx |
 | --- | --- | --- | --- | --- | --- |
 | Year of event | decade | highlight feature info | Image | event | so on... |
-| yyyy | yyyy |  1 | --2- | 3 | 4 | 
+| yyyy | yyyy |  Max 250 char. | ft1990.png | 3 | 4 | 
 | 1940 | 1940s |  Lorem ipsum dolor sit amet, posse omnium fastidii per ad, pri ne vocibus theophrastus. Ut nisl assueverit qui, facer omnesque moderatius cu pri. Ubique admodum ea eum. | ft1940.png | 3 | 4 | 
 
 
