@@ -24,7 +24,7 @@ Every year addition considers at least an image represeting the event. The image
 - [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) 
 - [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
 
-####s Naming convention:
+#### Naming convention:
 - Export featrue image (recommended naming convention: ft + year + ".png" 
 > example: **ft1990.png** )
 - Export people icon image (recommended naming convention: th + name + ".png" 
