@@ -18,10 +18,14 @@ There are three main steps to updating content on the website:
 ## Updating and editing the timeline:
 
 ### 1. Preparing images:
-**Image preparation** [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
+Every year addition considers at least an image represeting the event. The images shuold be aspect ration 16:9 color or b&w with the format of .png 
 
-- Export featrue image (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
-- Export people icon image (recommended naming convention: 'th' + name + ".png", example: th_Bair.png )
+There are two templates provided for **image preparation** 
+- [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) 
+- [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
+
+- Export featrue image (recommended naming convention: ft + year + ".png", example: **ft1990.png** )
+- Export people icon image (recommended naming convention: th + name + ".png", example: **th_LastName.png** )
 
 ### 2. Editing content on google spreadsheet:
 The spreadsheet is designed to accommodate multiple events within the same year. If there is only one event, the rest of the cells shuold be blank.
