@@ -32,12 +32,13 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 
 
 1. **Editing text**
-		1. *decade_text* (summary text for the decade): Max 250 characters 
-		1. *feature_text* (description text for the specific year): Max 250 characters
-		- *event*: Max 250 characters
-		- *system*: Max 250 characters
-		- *personName*
-		- *personTitle*
+		- *decade_text* (summary text for the decade): Max 250 characters
+		- *feature_text* (description text for the specific year): Max 250 characters
+		- *event*: Event description, max 250 characters
+		- *system*: System description, max 250 characters
+		- *personName*: First LastName
+		- *personTitle* Title
+
 1. **Exporting JSON file format**
 		- google spreadsheet -> Export JSON [(video instruction)](https://drive.google.com/file/d/1ZViOpQgwrdB-Kl7UiYf7MBo0cRa93zLl/view?usp=sharing)
 		
