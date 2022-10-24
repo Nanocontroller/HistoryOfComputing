@@ -2,16 +2,21 @@
 
 ## Project Description
 
-This project uses [a google spreadsheet](https://docs.google.com/spreadsheets/d/1u_ZMDIF0vk718AzKeD3iGzv5BXSBvxNJdlmltV7HGl0/edit?usp=sharing) to store data content. 
+This project uses [a google spreadsheet](https://docs.google.com/spreadsheets/d/1u_ZMDIF0vk718AzKeD3iGzv5BXSBvxNJdlmltV7HGl0/edit?usp=sharing) with data from events in the history of computing. 
+The data is exported in JSON format and used to generate the timeline with JavaScript and formatted with css. 
+
+
+## Updating content
 There are three main steps to updating content on the website:
 
 1. Preparing images
-2. Editing content on google spreadsheet
+2. Editing content on the google spreadsheet
 3. Updating files to the project folder
 
 ---
 
 ## Updating and editing the timeline:
+
 1. Preparing images:
 	* **Image preparation** [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
 		- Export featrue image (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
@@ -19,10 +24,10 @@ There are three main steps to updating content on the website:
 
 2. Editing content on google spreadsheet:
 
-| Year | Decade | feature_Text | feature_Img | event1_Text | ... |
+| Year | Decade | feature_Text | feature_Img | event1_Text | xxx |
 | --- | --- | --- | --- | --- | --- |
 | Year of event | decade | highlight feature info | Image | event | so on... |
-| yyyy | yyyy |  --- | --- | --- | --- | 
+| yyyy | yyyy |  1 | --2- | 3 | 4 | 
 
 	* **Editing text**
 		- *decade_text* (summary text for the decade): Max 250 characters 
@@ -45,4 +50,3 @@ There are three main steps to updating content on the website:
 ![desktop screen capture](hoc-desktop.png)
 
 ![mobile screen capture](hoc-mobile.jpg)
-
