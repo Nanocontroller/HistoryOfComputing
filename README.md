@@ -9,9 +9,9 @@ The data is exported in JSON format and used to generate the timeline with JavaS
 ## Updating content
 There are three main steps to updating content on the website:
 
-1. Preparing images
-2. Editing content on the google spreadsheet
-3. Updating files to the project folder
+1. [Preparing images](#1-preparing-images)
+2. [Editing content on the google spreadsheet](#2-editing-content-on-the-google-spreadsheet)
+3. [Updating files to the project folder](#3-updating-files-to-the-project-folder)
 
 ---
 
