@@ -17,6 +17,12 @@ There are three main steps to updating content on the website:
 		- Export featrue image (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
 		- Export people icon image (recommended naming convention: 'th' + name + ".png", example: th_Bair.png )
 2) Edit content on google spreadsheet:
+
+| Year | Decade | feature_Text | feature_Img | event1_Text | ... |
+| --- | --- | --- | --- | --- | --- |
+| Year of event | decade | highlight feature info | Image | event | so on... |
+| yyyy | yyyy |  --- | --- | --- | --- | 
+
 	* **Editing text**
 		- *decade_text* (summary text for the decade): Max 250 characters 
 		- *feature_text* (description text for the specific year): Max 250 characters
