@@ -36,14 +36,14 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 | Year | Decade | feature_Text | feature_Img | event1_Text | xxx |
 | --- | --- | --- | --- | --- | --- |
 | Year of event | decade | highlight feature info | Image | event | so on... |
-| yyyy | yyyy |  Max 250 char. | ft1990.png | 3 | 4 | 
-| 1940 | 1940s |  Lorem ipsum dolor sit amet, posse omnium fastidii per ad, pri ne vocibus theophrastus. Ut nisl assueverit qui, facer omnesque moderatius cu pri. Ubique admodum ea eum. | ft1940.png | 3 | 4 | 
+| yyyy | yyyys |  Max 250 char. | ft1990.png | max 250 characters | ... | 
+| 1940 | 1940s |  Lorem ipsum dolor sit amet, posse omnium fastidii per ad, pri ne vocibus theophrastus. Ut nisl assueverit qui, facer omnesque moderatius cu pri. Ubique admodum ea eum. | ft1940.png | Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synth stumptown gastropub cornhole celiac swag. Brunch raclette vexillologist post-ironic glossier ennui XOXO mlkshk godard pour-over blog tumblr humblebrag. Blue bottle put a bird on it twee prism biodiesel brooklyn. Blue bottle ennui tbh succulents. | 4 | 
 
 
 1. **Editing text**
 	- *decade_text* (summary text for the decade): Max 250 characters
 	- *feature_text* (description text for the specific year): Max 250 characters
-	- *event*: Event description, smax 250 characters
+	- *event*: Event description, max 250 characters
 	- *system*: System description, max 250 characters
 	- *personName*: First LastName
 	- *personTitle* Title
