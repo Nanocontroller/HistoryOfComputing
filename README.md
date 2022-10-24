@@ -30,7 +30,7 @@ Every year addition considers at least an image represeting the event. The image
 - Export people icon image (recommended naming convention: th + name + ".png" 
 > example: **th_LastName.png** )
 
-### 2. Editing content on google spreadsheet:
+### 2. Editing content on the google spreadsheet:
 The spreadsheet is designed to accommodate multiple events within the same year. If there is only one event, the rest of the cells shuold be blank.
 
 | Year | Decade | feature_Text | feature_Img | event1_Text | xxx |
@@ -41,11 +41,11 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 
 1. **Editing text**
 	- *decade_text* (summary text for the decade): Max 250 characters
-		- *feature_text* (description text for the specific year): Max 250 characters
-		- *event*: Event description, max 250 characters
-		- *system*: System description, max 250 characters
-		- *personName*: First LastName
-		- *personTitle* Title
+	- *feature_text* (description text for the specific year): Max 250 characters
+	- *event*: Event description, max 250 characters
+	- *system*: System description, max 250 characters
+	- *personName*: First LastName
+	- *personTitle* Title
 
 1. **Exporting JSON file format**
 		- google spreadsheet -> Export JSON [(video instruction)](https://drive.google.com/file/d/1ZViOpQgwrdB-Kl7UiYf7MBo0cRa93zLl/view?usp=sharing)
