@@ -37,12 +37,13 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 | --- | --- | --- | --- | --- | --- |
 | Year of event | decade | highlight feature info | Image | event | so on... |
 | yyyy | yyyy |  1 | --2- | 3 | 4 | 
+| 1940 | 1940s |  Lorem ipsum dolor sit amet, posse omnium fastidii per ad, pri ne vocibus theophrastus. Ut nisl assueverit qui, facer omnesque moderatius cu pri. Ubique admodum ea eum. | ft1940.png | 3 | 4 | 
 
 
 1. **Editing text**
 	- *decade_text* (summary text for the decade): Max 250 characters
 	- *feature_text* (description text for the specific year): Max 250 characters
-	- *event*: Event description, max 250 characters
+	- *event*: Event description, smax 250 characters
 	- *system*: System description, max 250 characters
 	- *personName*: First LastName
 	- *personTitle* Title
