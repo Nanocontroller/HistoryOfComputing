@@ -18,9 +18,10 @@ There are three main steps to updating content on the website:
 ## Updating and editing the timeline:
 
 ### 1. Preparing images:
-	* **Image preparation** [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
-		- Export featrue image (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
-		- Export people icon image (recommended naming convention: 'th' + name + ".png", example: th_Bair.png )
+**Image preparation** [Figma template](https://www.figma.com/file/W8ChwB3qHAnRvmBoTpsqk0/History-of-Computing---Template?node-id=0%3A1) / [Photoshop template](https://drive.google.com/drive/folders/17NApWjLOzARIUxsEhXs5ns6BUC-oxgtH?usp=sharing)
+
+- Export featrue image (recommended naming convention: 'ft' + year + ".png", example: ft1990.png )
+- Export people icon image (recommended naming convention: 'th' + name + ".png", example: th_Bair.png )
 
 ### 2. Editing content on google spreadsheet:
 The spreadsheet is designed to accommodate multiple events within the same year. If there is only one event, the rest of the cells shuold be blank.
@@ -32,7 +33,7 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 
 
 1. **Editing text**
-		- *decade_text* (summary text for the decade): Max 250 characters
+	- *decade_text* (summary text for the decade): Max 250 characters
 		- *feature_text* (description text for the specific year): Max 250 characters
 		- *event*: Event description, max 250 characters
 		- *system*: System description, max 250 characters
@@ -43,8 +44,8 @@ The spreadsheet is designed to accommodate multiple events within the same year.
 		- google spreadsheet -> Export JSON [(video instruction)](https://drive.google.com/file/d/1ZViOpQgwrdB-Kl7UiYf7MBo0cRa93zLl/view?usp=sharing)
 		
 ### 3. Updating files to the project folder:
-	1. Replace existing "data.json" file
-	2. Upload new images to the images folder
+1. Replace existing "data.json" file
+2. Upload new images to the images folder
 
 ---
 
