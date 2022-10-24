@@ -29,14 +29,15 @@ There are three main steps to updating content on the website:
 | Year of event | decade | highlight feature info | Image | event | so on... |
 | yyyy | yyyy |  1 | --2- | 3 | 4 | 
 
-	* **Editing text**
-		- *decade_text* (summary text for the decade): Max 250 characters 
-		- *feature_text* (description text for the specific year): Max 250 characters
+
+1. **Editing text**
+		1. *decade_text* (summary text for the decade): Max 250 characters 
+		1. *feature_text* (description text for the specific year): Max 250 characters
 		- *event*: Max 250 characters
 		- *system*: Max 250 characters
 		- *personName*
 		- *personTitle*
-	* **Exporting JSON file format**
+1. **Exporting JSON file format**
 		- google spreadsheet -> Export JSON [(video instruction)](https://drive.google.com/file/d/1ZViOpQgwrdB-Kl7UiYf7MBo0cRa93zLl/view?usp=sharing)
 		
 3. Updating files to the project folder:
