@@ -618,7 +618,7 @@
     {
         "year": 2004,
         "decade": "",
-        "featuretext": "Argonne and Oak Ridge are selected as the locations for the DOE Office of Science Leadership Computing Facilities after a competitive peer review of proposals\nFormed the Blue Gene Consortium with IBM",
+        "featuretext": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel posuere massa. Duis congue purus eget lacus pulvinar, imperdiet faucibus nisl pretium. Nunc laoreet vitae augue et pharetra. Maecenas consectetur enim quis eros rhoncus ultricies.",
         "featureimg": "ft2004.png",
         "event1text": "Argonne forms the Blue Gene Consortium with IBM.",
         "event2text": "",
@@ -662,7 +662,7 @@
     {
         "year": 2006,
         "decade": "",
-        "featuretext": "The ALCF is officially established as a division at Argonne<br>\nBegan production support of 6 INCITE projects<br>\nContinued code development and evaluation",
+        "featuretext": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel posuere massa. Duis congue purus eget lacus pulvinar, imperdiet faucibus nisl pretium. Nunc laoreet vitae augue et pharetra. Maecenas consectetur enim quis eros rhoncus ultricies.",
         "featureimg": "ft2006.png",
         "event1text": "",
         "event2text": "",
@@ -684,7 +684,7 @@
     {
         "year": 2007,
         "decade": "",
-        "featuretext": "Increased to 9 INCITE projects <br>\nContinued development projects <br>\nHeld Next Generation Blue Gene workshop (June) <br>\nInstalled 100-teraflops Blue Gene/P (Oct.-Nov.) <br>\nAccepted 100-teraflops Blue Gene/P (Dec.)",
+        "featuretext": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel posuere massa. Duis congue purus eget lacus pulvinar, imperdiet faucibus nisl pretium. Nunc laoreet vitae augue et pharetra. Maecenas consectetur enim quis eros rhoncus ultricies.",
         "featureimg": "ft2007.png",
         "event1text": "Installation of a 557-teraflops Blue Gene/P, Intrepid, at the ALCF.",
         "event2text": "",
