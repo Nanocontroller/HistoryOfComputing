@@ -346,12 +346,13 @@ img {
   .decade-main img{
     height: unset;
     width: 100%;
+    transform: scale(1);
   }
 
   .decade-main:hover img{
     transform: scale(1.1);
   }
-  
+
   #decades-container {
     display: none;
   }
