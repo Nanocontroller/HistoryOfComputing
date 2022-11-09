@@ -61,18 +61,24 @@ body {
   width: 60vh;
   height: 60vh;
   object-fit: none;
+  overflow: hidden;
 }
 
 .decade-main {
   min-width: 33vh;
+  overflow: hidden;              /*anim test */
 }
 
 .decade-main img {
   width: 100%;
   height: 35vh;
   object-fit:cover;
+  transition:transform .5s ease;  /*anim test */
+  transform: scale(1);            /*anim test */
 }
-
+.decade-main:hover img{           /*anim test */
+  transform: scale(1.1);
+}
 #data-container {
   display: flex;
   flex-direction: row;
