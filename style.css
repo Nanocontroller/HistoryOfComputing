@@ -396,10 +396,14 @@ img {
     margin-top: 100px;
     flex-direction: column;
   }
-  .decade-intro-img {
+  .decade-intro-img img{
     width: 100%;
+    transform: scale(1);
   }
-
+  .decade-intro-img:hover img {
+    width: 100%;
+    transform: scale(1.2);
+  }
   .popup-box h3 {
     font-size: 15px;
     line-height: 22px;
