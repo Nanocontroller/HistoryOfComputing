@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>History Of Computing</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="select.css" />
-  </head>
-  <body onload="handleOnload()">
-    <div class="container">
-      <div class="inner-body">
-        <div class="header">
-          <h1 class="main-heading">History of Computing</h1>
-          <div id="decades-container"></div>
-          <div class="wrapper">
-            <div class="select-btn">
-              <span style="color:#b8e2de">1940</span>
-              <span>&#9662;</span>
-            </div>
-            <div class="content">
-              <ul class="options"></ul>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Of Computing</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="select.css" />
+</head>
+
+<body onload="handleOnload()">
+  <div class="container">
+    <div class="inner-body">
+      <div class="header">
+        <h1 class="main-heading">History of Computing</h1>
+        <div id="decades-container"></div>
+        <div class="wrapper">
+          <div class="select-btn">
+            <span style="color:#b8e2de">1940</span>
+            <span>&#9662;</span>
+          </div>
+          <div class="content">
+            <ul class="options"></ul>
           </div>
         </div>
-        
+      </div>
 
-        <div id="data-container"></div>
-      </div>
-      <div id="overlay"></div>
-      <div id="popup-container">
-        <div id="popup-data"></div>
-        <span onclick="hidePopup()" id="close-popup">x close</span>
-      </div>
+
+      <div id="data-container"></div>
     </div>
-    <script src="script.js"></script>
-    <script src="select.js"></script>
-  </body>
+    <div id="overlay"></div>
+    <div id="popup-container">
+      <div id="popup-data"></div>
+      <span onclick="hidePopup()" id="close-popup">x close</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="select.js"></script>
+</body>
+
 </html>

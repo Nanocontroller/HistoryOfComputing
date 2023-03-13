@@ -2,6 +2,7 @@ const DECADE_CONTAINER = document.getElementById('decades-container')
 const MOBILE_DA = document.getElementById('decades-container')
 const DATA_CONTAINER = document.getElementById('data-container')
 const OVERLAY = document.getElementById('overlay')
+const BASE_URL = 'https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images'
 
 const popupData = []
 
@@ -16,7 +17,7 @@ const handleOnload = async () => {
 
       decadeButton.innerHTML = item.year
       decadeButton.className = 'decade-button'
-      decadeButton.onclick = () =>  document.getElementById(`section-${item.year}`).scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
+      decadeButton.onclick = () => document.getElementById(`section-${item.year}`).scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
       DECADE_CONTAINER.appendChild(decadeButton)
     }
     createData(item, i)
@@ -25,17 +26,17 @@ const handleOnload = async () => {
 }
 
 const handleDecadeClick = (decade) => {
-// console.log(decade.target.item)
+  // console.log(decade.target.item)
 
 }
 
 const createData = (item, i) => {
-   if (item.year % 10 === 0) {
+  if (item.year % 10 === 0) {
     let decateIntro = `
     <div class='decade-intro' id=section-${item.year}>
       <div class='decade-intro-main' >
         <h1><span class="circle"></span>${item.year + 's'}</h1>
-        <img class='decade-intro-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/FeatureImages/${item.featureimg}'/>
+        ${generateImageAttributes(`/FeatureImages/${item.featureimg}`, 'decade-intro-img')}
       </div>
       <p class='decade-intro-p'>${item.featuretext}</p>
     </div>
@@ -46,7 +47,8 @@ const createData = (item, i) => {
     <div class='decade-data'>
       <div class='decade-main'>
       <h2>${item.year}</h2>
-      <img class='decade-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/FeatureImages/${item.featureimg}'/>
+      ${generateImageAttributes(`/FeatureImages/${item.featureimg}`, 'decade-img')}
+
       <p>${item.featuretext}</p>
       ${renderButtons(item, i)}
       </div>
@@ -54,12 +56,12 @@ const createData = (item, i) => {
   `
   DATA_CONTAINER.innerHTML += decadeYearData
 }
-{/* <img class='popup-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/> */}
+{/* <img class='popup-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/> */ }
 const renderDiv = (title) => {
   return `
   <div class='popup-box'>
     <h3>${title}</h3>
-    <img class='popup-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/event-icon.png'/>
+    <img class='popup-img' src='${BASE_URL}/event-icon.png'/>
   </div>
   `
 }
@@ -71,7 +73,7 @@ const renderPersonDiv = (title, image, subTitle) => {
       <h2>${title}</h2>
       <p>${subTitle}</p>
     </div>
-    <img class='popup-people-img' src='https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images/PeopleIcon/${image}'/>
+    <img class='popup-people-img' ${generateImageAttributes(`/PeopleIcon/${image}`)}/>
   </div>
   `
 }
@@ -122,7 +124,7 @@ const renderButtons = (data, i) => {
   </div>
     `
   }
- 
+
   popup += '</div>'
   popupData.push(popup)
   if (data.event1text !== '' || data.software1text !== '' || data.system1text !== '' || data.person1name !== '') {
@@ -137,7 +139,7 @@ const showPopup = (i) => {
   document.getElementById('popup-data').innerHTML = popupData[i];
   OVERLAY.style.display = 'block'
   popupContainer.style.display = 'block'
-  document.querySelector('body').style.overflow="hidden"
+  document.querySelector('body').style.overflow = "hidden"
 }
 
 const hidePopup = () => {
@@ -145,7 +147,7 @@ const hidePopup = () => {
   popupContainer.style.display = 'none'
   document.getElementById('popup-data').innerHTML = ''
   OVERLAY.style.display = 'none'
-  document.querySelector('body').style.overflow="auto"
+  document.querySelector('body').style.overflow = "auto"
 
 
 }
@@ -154,3 +156,36 @@ DATA_CONTAINER.addEventListener('wheel', (evt) => {
   evt.preventDefault()
   DATA_CONTAINER.scrollLeft += evt.deltaY
 })
+
+
+function generateSrcSet(imageUrl) {
+  const imageSources = [
+    { width: 480, density: '@0.25x.jpg' },
+    { width: 992, density: '@0.5x.jpg' },
+    { width: null, density: '.png' }
+  ];
+
+  const srcset = imageSources
+    .map(source => {
+      const imageWidth = source.width ? `${source.width}w` : null;
+      const imageName = BASE_URL + imageUrl.split('.').slice(0, -1).join('') + `${source.density}`;
+      const imageSrc = imageName;
+      return `${imageSrc} ${imageWidth}`;
+    })
+    .join(', ');
+
+  return `src='${BASE_URL} ${imageUrl}' srcset="${srcset}"`;
+}
+
+function generateImageAttributes(imageUrl, className) {
+  const removeExtension = (filename) => filename.replace(/\.[^.]+$/, '');
+  return `
+  <picture>
+  <source media="(max-width:480px)" srcset="${BASE_URL + removeExtension(imageUrl)}@0.25x.jpg">
+  <source media="(max-width:992px)" srcset="${BASE_URL + removeExtension(imageUrl)}@0.5x.jpg">
+  <img class="${className}" src="${BASE_URL + imageUrl}" >
+</picture>
+  `
+}
+
+
