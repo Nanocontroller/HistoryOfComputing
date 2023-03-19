@@ -180,11 +180,13 @@ function generateSrcSet(imageUrl) {
 function generateImageAttributes(imageUrl, className) {
   const removeExtension = (filename) => filename.replace(/\.[^.]+$/, '');
   return `
+  <div class='image-container'>
   <picture>
   <source media="(max-width:480px)" srcset="${BASE_URL + removeExtension(imageUrl)}@0.25x.jpg">
   <source media="(max-width:992px)" srcset="${BASE_URL + removeExtension(imageUrl)}@0.5x.jpg">
-  <img class="${className}" src="${BASE_URL + imageUrl}" >
+  <img class="${className} zoom-image" src="${BASE_URL + imageUrl}" >
 </picture>
+</div>
   `
 }
 
