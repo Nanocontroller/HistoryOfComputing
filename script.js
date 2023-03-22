@@ -73,7 +73,7 @@ const renderPersonDiv = (title, image, subTitle) => {
       <h2>${title}</h2>
       <p>${subTitle}</p>
     </div>
-    <img class='popup-people-img' ${generateImageAttributes(`/PeopleIcon/${image}`)}/>
+     ${generateImageAttributes(`/PeopleIcon/${image}`, 'popup-people-img')}
   </div>
   `
 }
