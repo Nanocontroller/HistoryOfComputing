@@ -1,0 +1,63 @@
+/**
+ * Theme Variables - ANL Style
+ * Professional, clean, science-focused design
+ */
+
+:root {
+  /* Dark Theme (Default) - Current ANL colors */
+  --bg-primary: #1d1651;
+  --bg-secondary: #080812;
+  --bg-elevated: rgba(255, 255, 255, 0.05);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #b8e2de;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  
+  --accent-primary: #118acb;
+  --accent-hover: #0d6a9f;
+  --accent-light: #b8e2de;
+  
+  --border-color: #118acb;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+[data-theme="light"] {
+  /* Light Theme - ANL style with professional blues and grays */
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-elevated: #ffffff;
+  
+  --text-primary: #1a202c;
+  --text-secondary: #2d3748;
+  --text-muted: #718096;
+  
+  --accent-primary: #0066cc;
+  --accent-hover: #004d99;
+  --accent-light: #4d94d6;
+  
+  --border-color: #cbd5e0;
+  --border-subtle: #e2e8f0;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Scroll indicator color for light mode */
+  --indicator-color: #0066cc;
+}
+
+/* Smooth theme transition */
+body.theme-transitioning,
+body.theme-transitioning * {
+  transition: background-color var(--transition-base), 
+              color var(--transition-base), 
+              border-color var(--transition-base) !important;
+}

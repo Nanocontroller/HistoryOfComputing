@@ -1,6 +1,21 @@
 
-images/FeatureImages/.DS_Store
-images/.DS_Store
-images/2020-incite.jpeg
-images/FeatureImages/.DS_Store
-images/.DS_Store
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+*.local
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

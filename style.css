@@ -1,3 +1,12 @@
+/* 
+ * History of Computing Timeline
+ * Enhanced with modern infrastructure and ANL-aligned design
+ */
+
+/* Import theme variables */
+@import url('./src/styles/theme.css');
+@import url('./src/styles/components.css');
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -38,8 +47,9 @@ body {
 body {
   /* Montserrat from Google Fonts with system font fallbacks */
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  background-color: #1d1651;
-  color: #fff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 .container {
@@ -110,8 +120,27 @@ body {
 #decades-container {
   border-bottom: 1px solid #118acb;
   padding-bottom: 1.5vh;
-  overflow: hidden;
+  margin-bottom: 20px;
+  overflow: visible !important;
   display: block;
+  position: relative;
+  --indicator-position: 0px;
+}
+
+/* Scroll progress indicator - integrated with timeline */
+#decades-container::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  left: var(--indicator-position, 0px) !important;
+  width: 50px !important;
+  height: 3px !important;
+  background: #118acb !important;
+  border-radius: 0 !important;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 0 8px rgba(17, 138, 203, 0.8) !important;
+  z-index: 9999 !important;
+  display: block !important;
 }
 
 .circle {
@@ -527,6 +556,11 @@ img {
     width: 100%;
   }
   #decades-container {
+    display: none;
+  }
+  
+  /* Hide scroll indicator on mobile */
+  #decades-container::after {
     display: none;
   }
   .wrapper {

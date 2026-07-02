@@ -60,16 +60,11 @@
     </aside>
   </div>
   
-  <script src="script.js"></script>
+  <!-- Main application (ES6 module) -->
+  <script type="module" src="/src/main.js"></script>
+  
+  <!-- Mobile dropdown (legacy) -->
   <script src="select.js"></script>
-  <script>
-    // Initialize on load
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', handleOnload);
-    } else {
-      handleOnload();
-    }
-  </script>
 </body>
 
 </html>

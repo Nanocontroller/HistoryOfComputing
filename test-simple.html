@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Super Simple Test</title>
+  <style>
+    body {
+      margin: 40px;
+      background: #1d1651;
+      color: white;
+    }
+    
+    .test-box {
+      width: 500px;
+      height: 100px;
+      background: rgba(255,255,255,0.1);
+      position: relative;
+      border: 2px solid #118acb;
+      margin-bottom: 50px;
+    }
+    
+    /* Test 1: Basic ::after */
+    #test1::after {
+      content: 'I AM HERE';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      background: #b8e2de;
+      color: black;
+      padding: 10px;
+    }
+    
+    /* Test 2: Simple colored bar */
+    #test2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100px;
+      height: 10px;
+      background: #ff00ff;  /* Bright magenta */
+    }
+    
+    /* Test 3: Exact same as your CSS */
+    #test3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 80px;
+      height: 6px;
+      background: #b8e2de;
+      border-radius: 3px;
+      box-shadow: 0 2px 8px rgba(184, 226, 222, 0.6);
+      z-index: 100;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Testing ::after Pseudo-element</h1>
+  
+  <h2>Test 1: With text content</h2>
+  <div id="test1" class="test-box">
+    Parent Box - Look below for "I AM HERE"
+  </div>
+  
+  <h2>Test 2: Bright magenta bar</h2>
+  <div id="test2" class="test-box">
+    Parent Box - Look below for MAGENTA bar
+  </div>
+  
+  <h2>Test 3: Your exact CSS (cyan)</h2>
+  <div id="test3" class="test-box">
+    Parent Box - Look below for CYAN bar
+  </div>
+  
+  <script>
+    console.log('Page loaded');
+    
+    // Check if ::after is rendering
+    ['test1', 'test2', 'test3'].forEach(id => {
+      const el = document.getElementById(id);
+      const after = window.getComputedStyle(el, '::after');
+      console.log(`${id}::after`);
+      console.log('  content:', after.content);
+      console.log('  display:', after.display);
+      console.log('  background:', after.background);
+      console.log('  position:', after.position);
+    });
+  </script>
+</body>
+</html>
