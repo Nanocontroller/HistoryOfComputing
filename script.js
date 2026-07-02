@@ -1,193 +1,453 @@
+// DOM Elements
 const DECADE_CONTAINER = document.getElementById('decades-container')
-const MOBILE_DA = document.getElementById('decades-container')
 const DATA_CONTAINER = document.getElementById('data-container')
 const OVERLAY = document.getElementById('overlay')
 const BASE_URL = 'https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images'
 
-const popupData = []
+// State
+const state = {
+  data: [],
+  popupData: [],
+  currentFilter: ''
+}
 
 const handleOnload = async () => {
-  let data = await fetch('data.json').then((res) => res.json())
-  data.map((item, i) => {
-    let LetItem = item;
-    // console.log(LetItem)
-
-    if (item.year % 10 === 0) {
-      let decadeButton = document.createElement('button')
-
-      decadeButton.innerHTML = item.year
-      decadeButton.className = 'decade-button'
-      decadeButton.onclick = () => document.getElementById(`section-${item.year}`).scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
-      DECADE_CONTAINER.appendChild(decadeButton)
+  try {
+    // Show loading state
+    showLoadingState()
+    
+    const response = await fetch('data.json')
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
     }
-    createData(item, i)
-
-  })
-}
-
-const handleDecadeClick = (decade) => {
-  // console.log(decade.target.item)
-
-}
-
-const createData = (item, i) => {
-  if (item.year % 10 === 0) {
-    let decateIntro = `
-    <div class='decade-intro' id=section-${item.year}>
-      <div class='decade-intro-main' >
-        <h1><span class="circle"></span>${item.year + 's'}</h1>
-        ${generateImageAttributes(`/FeatureImages/${item.featureimg}`, 'decade-intro-img')}
-      </div>
-      <p class='decade-intro-p'>${item.featuretext}</p>
-    </div>
-    `
-    DATA_CONTAINER.innerHTML += decateIntro
+    
+    const data = await response.json()
+    state.data = data
+    
+    // Create decade buttons
+    const fragment = document.createDocumentFragment()
+    data.forEach((item, i) => {
+      if (item.year % 10 === 0) {
+        const decadeButton = createDecadeButton(item.year)
+        fragment.appendChild(decadeButton)
+      }
+    })
+    DECADE_CONTAINER.appendChild(fragment)
+    
+    // Render all data
+    renderData(data)
+    
+    // Initialize search
+    initializeSearch()
+    
+  } catch (error) {
+    console.error('Error loading timeline data:', error)
+    showErrorState(error.message)
   }
-  let decadeYearData = `
-    <div class='decade-data'>
-      <div class='decade-main'>
-      <h2>${item.year}</h2>
-      ${generateImageAttributes(`/FeatureImages/${item.featureimg}`, 'decade-img')}
+}
 
-      <p>${item.featuretext}</p>
-      ${renderButtons(item, i)}
-      </div>
+const showLoadingState = () => {
+  DATA_CONTAINER.innerHTML = `
+    <div class="loading-state" role="status" aria-live="polite">
+      <p>Loading timeline data...</p>
     </div>
   `
-  DATA_CONTAINER.innerHTML += decadeYearData
 }
-{/* <img class='popup-img' src='https://raw.github.com/holihollyday/image_HistoryofComputing/main/${image}'/> */ }
+
+const showErrorState = (message) => {
+  DATA_CONTAINER.innerHTML = `
+    <div class="error-state" role="alert">
+      <h2>Error Loading Timeline</h2>
+      <p>${escapeHtml(message)}</p>
+      <button onclick="location.reload()">Retry</button>
+    </div>
+  `
+}
+
+const createDecadeButton = (year) => {
+  const button = document.createElement('button')
+  button.textContent = year
+  button.className = 'decade-button'
+  button.setAttribute('aria-label', `Jump to ${year}s`)
+  button.onclick = () => {
+    const section = document.getElementById(`section-${year}`)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' })
+      section.focus()
+    }
+  }
+  return button
+}
+
+// Utility: Escape HTML to prevent XSS
+const escapeHtml = (text) => {
+  const div = document.createElement('div')
+  div.textContent = text
+  return div.innerHTML
+}
+
+const renderData = (data) => {
+  const fragment = document.createDocumentFragment()
+  
+  data.forEach((item, i) => {
+    if (item.year % 10 === 0) {
+      const decadeIntro = createDecadeIntro(item)
+      fragment.appendChild(decadeIntro)
+    }
+    const yearData = createYearData(item, i)
+    fragment.appendChild(yearData)
+  })
+  
+  DATA_CONTAINER.innerHTML = ''
+  DATA_CONTAINER.appendChild(fragment)
+}
+
+const createDecadeIntro = (item) => {
+  const div = document.createElement('div')
+  div.className = 'decade-intro'
+  div.id = `section-${item.year}`
+  div.setAttribute('tabindex', '-1')
+  div.setAttribute('aria-label', `${item.decade} section`)
+  
+  div.innerHTML = `
+    <div class='decade-intro-main'>
+      <h1><span class="circle" aria-hidden="true"></span>${escapeHtml(item.year + 's')}</h1>
+      ${generateImageAttributes(`/FeatureImages/${item.featureimg}`, 'decade-intro-img', `${item.decade} featured image`)}
+    </div>
+    <p class='decade-intro-p'>${escapeHtml(item.featuretext)}</p>
+  `
+  
+  return div
+}
+
+const createYearData = (item, index) => {
+  const div = document.createElement('div')
+  div.className = 'decade-data'
+  div.setAttribute('data-year', item.year)
+  div.setAttribute('data-searchable', JSON.stringify({
+    year: item.year,
+    text: item.featuretext,
+    people: [item.person1name, item.person2name].filter(Boolean).join(' '),
+    events: [item.event1text, item.event2text].filter(Boolean).join(' ')
+  }).toLowerCase())
+  
+  div.innerHTML = `
+    <div class='decade-main'>
+      <h2>${escapeHtml(String(item.year))}</h2>
+      ${generateImageAttributes(`/FeatureImages/${item.featureimg}`, 'decade-img', `Year ${item.year} featured image`)}
+      <p>${escapeHtml(item.featuretext)}</p>
+      ${renderButtons(item, index)}
+    </div>
+  `
+  
+  return div
+}
 const renderDiv = (title) => {
   return `
   <div class='popup-box'>
-    <h3>${title}</h3>
-    <img class='popup-img' src='${BASE_URL}/event-icon.png'/>
+    <h3>${escapeHtml(title)}</h3>
+    <img class='popup-img' src='${BASE_URL}/event-icon.png' alt="" aria-hidden="true"/>
   </div>
   `
 }
 
 const renderPersonDiv = (title, image, subTitle) => {
   return `
-  <div class='popup-box '>
+  <div class='popup-box'>
     <div class="tittle">
-      <h2>${title}</h2>
-      <p>${subTitle}</p>
+      <h2>${escapeHtml(title)}</h2>
+      <p>${escapeHtml(subTitle)}</p>
     </div>
-     ${generateImageAttributes(`/PeopleIcon/${image}`, 'popup-people-img')}
+    ${generateImageAttributes(`/PeopleIcon/${image}`, 'popup-people-img', title)}
   </div>
   `
 }
 
-const renderButtons = (data, i) => {
-  // console.log(data.year)
-  let popup = `<div>
-  <h1>${data.year}</h1>
-  `
+const renderButtons = (data, index) => {
+  const sections = []
+  
+  // People section
   if (data.person1name !== '') {
-    popup += `
-    <div class="popup-section people-section">
-    <h3>People</h3>
-    ${renderPersonDiv(data.person1name, data.person1img, data.person1title)}
-    ${data.person2name !== '' ? renderPersonDiv(data.person2name, data.person2img, data.person2title) : ''}
-  </div>
-    `
+    let peopleHtml = `<div class="popup-section people-section" role="region" aria-label="People">
+      <h3>People</h3>
+      ${renderPersonDiv(data.person1name, data.person1img, data.person1title)}`
+    
+    if (data.person2name !== '') {
+      peopleHtml += renderPersonDiv(data.person2name, data.person2img, data.person2title)
+    }
+    peopleHtml += '</div>'
+    sections.push(peopleHtml)
   }
+  
+  // Events section
   if (data.event1text !== '') {
-    popup += `
-    <div class="popup-section event-section">
+    let eventsHtml = `<div class="popup-section event-section" role="region" aria-label="Events">
       <h3>Events</h3>
-      ${renderDiv(data.event1text)}
-      ${data.event2text !== '' ? renderDiv(data.event2text) : ''}
-    </div>
-    `
+      ${renderDiv(data.event1text)}`
+    
+    if (data.event2text !== '') {
+      eventsHtml += renderDiv(data.event2text)
+    }
+    eventsHtml += '</div>'
+    sections.push(eventsHtml)
   }
 
+  // Software section
   if (data.software1text !== '') {
-    popup += `
-    <div class="popup-section event-section">
-    <h3>Software</h3>
-    ${renderDiv(data.software1text)}
-    ${data.software2text !== '' ? renderDiv(data.software2text) : ''}
-  </div>
-    `
+    let softwareHtml = `<div class="popup-section event-section" role="region" aria-label="Software">
+      <h3>Software</h3>
+      ${renderDiv(data.software1text)}`
+    
+    if (data.software2text !== '') {
+      softwareHtml += renderDiv(data.software2text)
+    }
+    softwareHtml += '</div>'
+    sections.push(softwareHtml)
   }
 
+  // Systems section
   if (data.system1text !== '') {
-    popup += `
-    <div class="popup-section event-section">
-    <h3>System</h3>
-    ${renderDiv(data.system1text)}
-    ${data.system2text !== '' ? renderDiv(data.system2text) : ''}
-    ${data.system3text !== '' ? renderDiv(data.system3text) : ''}
-    ${data.system4text !== '' ? renderDiv(data.system4text) : ''}
-    ${data.system5text !== '' ? renderDiv(data.system5text) : ''}
-  </div>
-    `
+    let systemsHtml = `<div class="popup-section event-section" role="region" aria-label="Systems">
+      <h3>Systems</h3>
+      ${renderDiv(data.system1text)}`
+    
+    const systemTexts = [data.system2text, data.system3text, data.system4text, data.system5text]
+    systemTexts.forEach(text => {
+      if (text !== '') systemsHtml += renderDiv(text)
+    })
+    systemsHtml += '</div>'
+    sections.push(systemsHtml)
   }
-
-  popup += '</div>'
-  popupData.push(popup)
-  if (data.event1text !== '' || data.software1text !== '' || data.system1text !== '' || data.person1name !== '') {
-    return `<div onclick='showPopup(${i})' class="read-more-btn"><span class="read-more-icon"></span>Read more</div>`
-  } else {
-    return ''
+  
+  if (sections.length > 0) {
+    const popup = `<div><h1>${escapeHtml(String(data.year))}</h1>${sections.join('')}</div>`
+    state.popupData[index] = popup
+    
+    return `<button 
+      class="read-more-btn" 
+      onclick="showPopup(${index})" 
+      aria-label="Read more about ${data.year}"
+      type="button">
+      <span class="read-more-icon" aria-hidden="true"></span>
+      <span>Read more</span>
+    </button>`
   }
+  
+  return ''
 }
 
-const showPopup = (i) => {
-  let popupContainer = document.getElementById('popup-container');
-  document.getElementById('popup-data').innerHTML = popupData[i];
+const showPopup = (index) => {
+  const popupContainer = document.getElementById('popup-container')
+  const popupData = document.getElementById('popup-data')
+  const closeButton = document.getElementById('close-popup')
+  
+  if (!state.popupData[index]) return
+  
+  popupData.innerHTML = state.popupData[index]
   OVERLAY.style.display = 'block'
   popupContainer.style.display = 'block'
-  document.querySelector('body').style.overflow = "hidden"
+  popupContainer.setAttribute('role', 'dialog')
+  popupContainer.setAttribute('aria-modal', 'true')
+  document.body.style.overflow = 'hidden'
+  
+  // Focus management
+  closeButton.focus()
+  
+  // Trap focus in modal
+  trapFocus(popupContainer)
 }
 
 const hidePopup = () => {
-  let popupContainer = document.getElementById('popup-container');
+  const popupContainer = document.getElementById('popup-container')
+  const popupData = document.getElementById('popup-data')
+  
   popupContainer.style.display = 'none'
-  document.getElementById('popup-data').innerHTML = ''
+  popupData.innerHTML = ''
   OVERLAY.style.display = 'none'
-  document.querySelector('body').style.overflow = "auto"
-
-
+  document.body.style.overflow = 'auto'
+  popupContainer.removeAttribute('role')
+  popupContainer.removeAttribute('aria-modal')
 }
 
+// Trap focus within modal for accessibility
+const trapFocus = (element) => {
+  const focusableElements = element.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  )
+  const firstFocusable = focusableElements[0]
+  const lastFocusable = focusableElements[focusableElements.length - 1]
+  
+  element.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return
+    
+    if (e.shiftKey) {
+      if (document.activeElement === firstFocusable) {
+        lastFocusable.focus()
+        e.preventDefault()
+      }
+    } else {
+      if (document.activeElement === lastFocusable) {
+        firstFocusable.focus()
+        e.preventDefault()
+      }
+    }
+  })
+  
+  // Close on Escape key
+  element.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hidePopup()
+  })
+}
+
+// Horizontal scroll with mouse wheel
 DATA_CONTAINER.addEventListener('wheel', (evt) => {
-  evt.preventDefault()
-  DATA_CONTAINER.scrollLeft += evt.deltaY
+  if (evt.deltaY !== 0) {
+    evt.preventDefault()
+    DATA_CONTAINER.scrollLeft += evt.deltaY
+  }
 })
 
+// Keyboard navigation
+DATA_CONTAINER.addEventListener('keydown', (evt) => {
+  const scrollAmount = 300
+  
+  switch(evt.key) {
+    case 'ArrowLeft':
+      DATA_CONTAINER.scrollLeft -= scrollAmount
+      evt.preventDefault()
+      break
+    case 'ArrowRight':
+      DATA_CONTAINER.scrollLeft += scrollAmount
+      evt.preventDefault()
+      break
+    case 'Home':
+      DATA_CONTAINER.scrollLeft = 0
+      evt.preventDefault()
+      break
+    case 'End':
+      DATA_CONTAINER.scrollLeft = DATA_CONTAINER.scrollWidth
+      evt.preventDefault()
+      break
+  }
+})
 
-function generateSrcSet(imageUrl) {
-  const imageSources = [
-    { width: 480, density: '@0.25x.jpg' },
-    { width: 992, density: '@0.5x.jpg' },
-    { width: null, density: '.png' }
-  ];
-
-  const srcset = imageSources
-    .map(source => {
-      const imageWidth = source.width ? `${source.width}w` : null;
-      const imageName = BASE_URL + imageUrl.split('.').slice(0, -1).join('') + `${source.density}`;
-      const imageSrc = imageName;
-      return `${imageSrc} ${imageWidth}`;
-    })
-    .join(', ');
-
-  return `src='${BASE_URL} ${imageUrl}' srcset="${srcset}"`;
+// Search functionality
+const initializeSearch = () => {
+  const searchContainer = document.createElement('div')
+  searchContainer.className = 'search-container'
+  searchContainer.innerHTML = `
+    <label for="timeline-search" class="search-label">Search Timeline</label>
+    <div class="search-input-wrapper">
+      <input 
+        type="text" 
+        id="timeline-search" 
+        class="search-input" 
+        placeholder="Search by year, person, event..."
+        aria-label="Search timeline by year, person, or event"
+      />
+      <button 
+        id="clear-search" 
+        class="clear-search-btn" 
+        aria-label="Clear search"
+        style="display: none;"
+        type="button"
+      >
+        ✕
+      </button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+  `
+  
+  const header = document.querySelector('.header')
+  header.insertBefore(searchContainer, header.lastElementChild)
+  
+  const searchInput = document.getElementById('timeline-search')
+  const clearBtn = document.getElementById('clear-search')
+  const resultsDiv = document.getElementById('search-results')
+  
+  let debounceTimer
+  
+  searchInput.addEventListener('input', (e) => {
+    clearTimeout(debounceTimer)
+    const query = e.target.value.trim()
+    
+    clearBtn.style.display = query ? 'block' : 'none'
+    
+    debounceTimer = setTimeout(() => {
+      performSearch(query, resultsDiv)
+    }, 300)
+  })
+  
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = ''
+    clearBtn.style.display = 'none'
+    performSearch('', resultsDiv)
+    searchInput.focus()
+  })
+  
+  // Clear search on Escape
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchInput.value = ''
+      clearBtn.style.display = 'none'
+      performSearch('', resultsDiv)
+    }
+  })
 }
 
-function generateImageAttributes(imageUrl, className) {
-  const removeExtension = (filename) => filename.replace(/\.[^.]+$/, '');
+const performSearch = (query, resultsDiv) => {
+  const allItems = document.querySelectorAll('.decade-data')
+  
+  if (!query) {
+    // Show all items
+    allItems.forEach(item => {
+      item.style.display = ''
+    })
+    resultsDiv.textContent = ''
+    return
+  }
+  
+  const searchTerm = query.toLowerCase()
+  let matchCount = 0
+  
+  allItems.forEach(item => {
+    const searchableData = item.getAttribute('data-searchable')
+    
+    if (searchableData && searchableData.includes(searchTerm)) {
+      item.style.display = ''
+      matchCount++
+    } else {
+      item.style.display = 'none'
+    }
+  })
+  
+  // Update results count
+  if (matchCount === 0) {
+    resultsDiv.textContent = 'No results found'
+    resultsDiv.className = 'search-results no-results'
+  } else {
+    resultsDiv.textContent = `${matchCount} result${matchCount !== 1 ? 's' : ''} found`
+    resultsDiv.className = 'search-results has-results'
+  }
+}
+
+
+// Overlay click to close popup
+OVERLAY.addEventListener('click', hidePopup)
+
+function generateImageAttributes(imageUrl, className, altText = '') {
+  const removeExtension = (filename) => filename.replace(/\.[^.]+$/, '')
+  const baseImageUrl = BASE_URL + removeExtension(imageUrl)
+  const fullImageUrl = BASE_URL + imageUrl
+  
   return `
   <div class='image-container'>
-  <picture>
-  <source media="(max-width:480px)" srcset="${BASE_URL + removeExtension(imageUrl)}@0.25x.jpg">
-  <source media="(max-width:992px)" srcset="${BASE_URL + removeExtension(imageUrl)}@0.5x.jpg">
-  <img class="${className} zoom-image" src="${BASE_URL + imageUrl}" >
-</picture>
-</div>
+    <picture>
+      <source media="(max-width:480px)" srcset="${baseImageUrl}@0.25x.jpg">
+      <source media="(max-width:992px)" srcset="${baseImageUrl}@0.5x.jpg">
+      <img class="${className} zoom-image" src="${fullImageUrl}" alt="${escapeHtml(altText)}" loading="lazy">
+    </picture>
+  </div>
   `
 }
-
-

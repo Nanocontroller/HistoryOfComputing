@@ -5,39 +5,71 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>History Of Computing</title>
+  <meta name="description" content="Interactive timeline showcasing the history of computing at Argonne National Laboratory from 1940 to present" />
+  <title>History of Computing - Argonne National Laboratory</title>
+  
+  <!-- Google Fonts - Similar to Proxima Nova -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="select.css" />
 </head>
 
-<body onload="handleOnload()">
+<body>
   <div class="container">
+    <a href="#data-container" class="skip-link">Skip to timeline</a>
+    
     <div class="inner-body">
-      <div class="header">
+      <header class="header" role="banner">
         <h1 class="main-heading">History of Computing</h1>
-        <div id="decades-container"></div>
+        
+        <!-- Desktop decade navigation -->
+        <nav id="decades-container" aria-label="Decade navigation"></nav>
+        
+        <!-- Mobile decade selector -->
         <div class="wrapper">
-          <div class="select-btn">
+          <div class="select-btn" role="button" tabindex="0" aria-label="Select decade" aria-haspopup="true">
             <span style="color:#b8e2de">1940</span>
-            <span>&#9662;</span>
+            <span aria-hidden="true">&#9662;</span>
           </div>
           <div class="content">
-            <ul class="options"></ul>
+            <ul class="options" role="menu"></ul>
           </div>
         </div>
-      </div>
+      </header>
 
-
-      <div id="data-container"></div>
+      <main id="data-container" role="main" aria-label="Timeline content" tabindex="0"></main>
     </div>
-    <div id="overlay"></div>
-    <div id="popup-container">
+    
+    <!-- Modal overlay -->
+    <div id="overlay" aria-hidden="true"></div>
+    
+    <!-- Modal popup -->
+    <aside id="popup-container" aria-labelledby="popup-title">
+      <button 
+        onclick="hidePopup()" 
+        id="close-popup" 
+        aria-label="Close dialog"
+        type="button"
+      >
+        ✕ close
+      </button>
       <div id="popup-data"></div>
-      <span onclick="hidePopup()" id="close-popup">x close</span>
-    </div>
+    </aside>
   </div>
+  
   <script src="script.js"></script>
   <script src="select.js"></script>
+  <script>
+    // Initialize on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleOnload);
+    } else {
+      handleOnload();
+    }
+  </script>
 </body>
 
 </html>
