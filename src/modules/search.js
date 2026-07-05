@@ -9,36 +9,56 @@ import { debounce } from '../utils/helpers.js'
  */
 export function initializeSearch() {
   const searchContainer = document.createElement('div')
-  searchContainer.className = 'search-container'
+  searchContainer.className = 'search-container collapsed'
   searchContainer.innerHTML = `
-    <label for="timeline-search" class="search-label">Search Timeline</label>
-    <div class="search-input-wrapper">
-      <input 
-        type="text" 
-        id="timeline-search" 
-        class="search-input" 
-        placeholder="Search by year, person, event..."
-        aria-label="Search timeline by year, person, or event"
-      />
-      <button 
-        id="clear-search" 
-        class="clear-search-btn" 
-        aria-label="Clear search"
-        style="display: none;"
-        type="button"
-      >
-        ✕
-      </button>
+    <button 
+      id="search-toggle" 
+      class="search-toggle-btn" 
+      aria-label="Toggle search"
+      type="button"
+      title="Search timeline"
+    >
+      🔍
+    </button>
+    <div class="search-expandable">
+      <label for="timeline-search" class="search-label">Search Timeline</label>
+      <div class="search-input-wrapper">
+        <input 
+          type="text" 
+          id="timeline-search" 
+          class="search-input" 
+          placeholder="Search by year, person, event..."
+          aria-label="Search timeline by year, person, or event"
+        />
+        <button 
+          id="clear-search" 
+          class="clear-search-btn" 
+          aria-label="Clear search"
+          style="display: none;"
+          type="button"
+        >
+          ✕
+        </button>
+      </div>
+      <div id="search-results" class="search-results" aria-live="polite"></div>
     </div>
-    <div id="search-results" class="search-results" aria-live="polite"></div>
   `
   
   const header = document.querySelector('.header')
   header.insertBefore(searchContainer, header.lastElementChild)
   
+  const toggleBtn = document.getElementById('search-toggle')
   const searchInput = document.getElementById('timeline-search')
   const clearBtn = document.getElementById('clear-search')
   const resultsDiv = document.getElementById('search-results')
+  
+  // Toggle search visibility
+  toggleBtn.addEventListener('click', () => {
+    searchContainer.classList.toggle('collapsed')
+    if (!searchContainer.classList.contains('collapsed')) {
+      searchInput.focus()
+    }
+  })
   
   // Debounced search
   const debouncedSearch = debounce((query) => {

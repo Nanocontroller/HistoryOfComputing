@@ -10,6 +10,7 @@ import { initializeSearch } from './modules/search.js'
 import { initTheme } from './modules/theme.js'
 import { initKeyboardNavigation } from './modules/keyboard.js'
 import { initScrollIndicator } from './modules/scrollIndicator.js'
+import { initMobileHeader } from './modules/mobileHeader.js'
 
 // DOM Elements
 const DECADE_CONTAINER = document.getElementById('decades-container')
@@ -54,6 +55,7 @@ async function init() {
     initModal()
     initKeyboardNavigation(DATA_CONTAINER)
     initScrollIndicator(DATA_CONTAINER, DECADE_CONTAINER)
+    initMobileHeader()
     
     // Add loaded class for animations
     document.body.classList.add('loaded')

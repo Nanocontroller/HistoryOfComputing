@@ -25,6 +25,7 @@ export function initScrollIndicator(dataContainer, decadeContainer) {
 
 /**
  * Calculate and update indicator position based on scroll
+ * Uses smooth interpolation between decades
  */
 function updateIndicatorPosition(dataContainer, decadeContainer) {
   const scrollLeft = dataContainer.scrollLeft
@@ -39,34 +40,13 @@ function updateIndicatorPosition(dataContainer, decadeContainer) {
   const decadeButtons = decadeContainer.querySelectorAll('.decade-button')
   if (decadeButtons.length === 0) return
   
-  // Get all decade sections in the timeline
-  const decadeSections = dataContainer.querySelectorAll('[id^="section-"]')
-  if (decadeSections.length === 0) return
+  // Simple approach: map scroll progress to decade button positions
+  const decadeWidth = decadeContainer.clientWidth
+  const indicatorWidth = 50
   
-  // Find which decade section is currently most visible
-  let currentDecadeIndex = 0
-  let minDistance = Infinity
+  // Calculate smooth position based on scroll percentage
+  const indicatorPosition = scrollProgress * (decadeWidth - indicatorWidth)
   
-  decadeSections.forEach((section, index) => {
-    const sectionLeft = section.offsetLeft
-    const distance = Math.abs(sectionLeft - scrollLeft)
-    if (distance < minDistance) {
-      minDistance = distance
-      currentDecadeIndex = index
-    }
-  })
-  
-  // Get the corresponding decade button position
-  if (decadeButtons[currentDecadeIndex]) {
-    const button = decadeButtons[currentDecadeIndex]
-    const buttonLeft = button.offsetLeft
-    const buttonWidth = button.offsetWidth
-    
-    // Center the indicator under the button
-    const indicatorWidth = 50 // Match CSS width
-    const indicatorPosition = buttonLeft + (buttonWidth / 2) - (indicatorWidth / 2)
-    
-    // Update CSS custom property
-    decadeContainer.style.setProperty('--indicator-position', `${indicatorPosition}px`)
-  }
+  // Update CSS custom property with smooth transition
+  decadeContainer.style.setProperty('--indicator-position', `${indicatorPosition}px`)
 }
