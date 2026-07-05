@@ -12,6 +12,9 @@ yarn.lock
 dist/
 *.local
 
+# Tests (local only)
+tests/
+
 # IDE
 .vscode/
 .idea/
