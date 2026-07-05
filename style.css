@@ -305,8 +305,40 @@ img {
 }
 
 @media screen and (max-width:768px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
   .header.header-hidden {
     transform: translateY(-100%);
+  }
+  
+  .main-heading {
+    font-size: 32px !important;
+    margin: 0 2vh 1vh 2vh !important;
+  }
+  
+  .search-container {
+    margin: 8px 0 !important;
+    padding: 0 2vh !important;
+  }
+  
+  .theme-toggle {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 16px !important;
+  }
+  
+  .search-toggle-btn {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 16px !important;
   }
 }
 #popup-container {
@@ -636,6 +668,22 @@ img {
   }
   .wrapper {
     display: block;
+    margin: 8px 2vh;
+  }
+  
+  /* Make dropdown compact */
+  .wrapper .select-btn {
+    height: 40px !important;
+    padding: 0 12px !important;
+    font-size: 14px !important;
+  }
+  
+  .wrapper .select-btn span:first-child {
+    font-size: 14px !important;
+  }
+  
+  .wrapper .select-btn span:nth-child(2) {
+    font-size: 20px !important;
   }
 
   .decade-intro {
@@ -671,8 +719,9 @@ img {
   }
 
   #data-container {
-    margin-top: 100px;
+    margin-top: 160px;
     flex-direction: column;
+    padding-top: 20px;
   }
   .decade-intro-img {
     width: 100%;

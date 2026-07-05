@@ -35,18 +35,19 @@ export function initMobileHeader() {
  * Handle scroll to show/hide header
  */
 function handleScroll(header, container) {
-  const scrollTop = container.scrollTop || container.scrollLeft
+  // For horizontal scroll on mobile, we check scrollLeft
+  const scrollPosition = container.scrollLeft
   
-  // Scrolling down - hide header
-  if (scrollTop > lastScrollTop && scrollTop > 100 && !isHeaderHidden) {
+  // Scrolling right - hide header
+  if (scrollPosition > lastScrollTop && scrollPosition > 200 && !isHeaderHidden) {
     header.classList.add('header-hidden')
     isHeaderHidden = true
   } 
-  // Scrolling up - show header
-  else if (scrollTop < lastScrollTop && isHeaderHidden) {
+  // Scrolling left - show header
+  else if (scrollPosition < lastScrollTop && scrollPosition < lastScrollTop - 100 && isHeaderHidden) {
     header.classList.remove('header-hidden')
     isHeaderHidden = false
   }
   
-  lastScrollTop = scrollTop
+  lastScrollTop = scrollPosition
 }
