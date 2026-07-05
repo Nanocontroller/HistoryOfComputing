@@ -18,8 +18,9 @@ export function initMobileHeader() {
   const dataContainer = document.getElementById('data-container')
   if (!dataContainer) return
   
+  // On mobile, listen to vertical scroll
   dataContainer.addEventListener('scroll', () => {
-    handleScroll(header, dataContainer)
+    handleScrollMobile(header, dataContainer)
   })
   
   // Re-check on resize
@@ -32,19 +33,19 @@ export function initMobileHeader() {
 }
 
 /**
- * Handle scroll to show/hide header
+ * Handle scroll for mobile (vertical scroll)
  */
-function handleScroll(header, container) {
-  // For horizontal scroll on mobile, we check scrollLeft
-  const scrollPosition = container.scrollLeft
+function handleScrollMobile(header, container) {
+  // Mobile uses vertical scroll (scrollTop)
+  const scrollPosition = container.scrollTop
   
-  // Scrolling right - hide header
-  if (scrollPosition > lastScrollTop && scrollPosition > 200 && !isHeaderHidden) {
+  // Scrolling down - hide header
+  if (scrollPosition > lastScrollTop && scrollPosition > 100 && !isHeaderHidden) {
     header.classList.add('header-hidden')
     isHeaderHidden = true
   } 
-  // Scrolling left - show header
-  else if (scrollPosition < lastScrollTop && scrollPosition < lastScrollTop - 100 && isHeaderHidden) {
+  // Scrolling up - show header
+  else if (scrollPosition < lastScrollTop - 50 && isHeaderHidden) {
     header.classList.remove('header-hidden')
     isHeaderHidden = false
   }

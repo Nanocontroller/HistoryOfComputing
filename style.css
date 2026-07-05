@@ -668,27 +668,40 @@ img {
   }
   .wrapper {
     display: block;
-    margin: 8px 2vh;
+    margin: 4px 2vh 8px 2vh;
   }
   
-  /* Make dropdown compact */
+  /* Make dropdown compact and clear */
   .wrapper .select-btn {
-    height: 40px !important;
-    padding: 0 12px !important;
-    font-size: 14px !important;
+    height: 36px !important;
+    padding: 0 10px !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+    background: rgba(255,255,255,0.1) !important;
+  }
+  
+  .wrapper .select-btn::before {
+    content: 'Jump to: ';
+    opacity: 0.7;
+    font-size: 12px;
+    margin-right: 4px;
   }
   
   .wrapper .select-btn span:first-child {
     font-size: 14px !important;
+    font-weight: 600 !important;
   }
   
   .wrapper .select-btn span:nth-child(2) {
-    font-size: 20px !important;
+    font-size: 16px !important;
   }
 
   .decade-intro {
     flex-direction: column;
     margin-left: 0;
+    width: 100% !important;
+    padding-left: 2vh !important;
+    padding-right: 2vh !important;
   }
   #data-container p{
     margin: 4vw 0vw 4vw 0vw;
@@ -707,10 +720,19 @@ img {
 
   .decade-data {
     padding-bottom: 48px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 2vh !important;
+    padding-right: 2vh !important;
   }
 
   .decade-main h2 {
     margin: 2vw 0vw 1.2vw 0vw;
+  }
+  
+  .decade-main {
+    min-width: 100% !important;
+    width: 100% !important;
   }
   
   .decade-main div {
@@ -719,9 +741,13 @@ img {
   }
 
   #data-container {
-    margin-top: 160px;
+    margin-top: 120px;
     flex-direction: column;
     padding-top: 20px;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+    height: calc(100vh - 120px) !important;
   }
   .decade-intro-img {
     width: 100%;
