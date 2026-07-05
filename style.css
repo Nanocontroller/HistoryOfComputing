@@ -3,9 +3,28 @@
  * Enhanced with modern infrastructure and ANL-aligned design
  */
 
-/* Import theme variables */
-@import url('./src/styles/theme.css');
-@import url('./src/styles/components.css');
+/* Theme Variables - Inline for deployment */
+:root {
+  /* Dark Theme (Default) */
+  --bg-primary: #1d1651;
+  --bg-secondary: #080812;
+  --text-primary: #ffffff;
+  --text-secondary: #b8e2de;
+  --accent-primary: #118acb;
+  --border-color: #118acb;
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] {
+  /* Light Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --accent-primary: #0066cc;
+  --border-color: #cbd5e0;
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
 
 * {
   box-sizing: border-box;
