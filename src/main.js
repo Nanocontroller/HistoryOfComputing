@@ -26,8 +26,8 @@ async function init() {
     // Show loading state
     showLoadingState(DATA_CONTAINER)
     
-    // Fetch timeline data
-    const response = await fetch('/data.json')
+    // Fetch timeline data (relative path for GitHub Pages)
+    const response = await fetch('./data.json')
     
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
