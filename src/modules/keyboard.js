@@ -1,4 +1,4 @@
-/**
+ /**
  * Keyboard navigation
  */
 
@@ -6,36 +6,37 @@
  * Initialize keyboard navigation
  */
 export function initKeyboardNavigation(container) {
-  // Horizontal scroll with mouse wheel
+  // Horizontal scroll with mouse wheel (trackpad friendly)
   container.addEventListener('wheel', (evt) => {
     if (evt.deltaY !== 0) {
       evt.preventDefault()
-      
-      // Smooth scroll with easing
-      const scrollAmount = evt.deltaY
-      smoothScroll(container, scrollAmount, 300)
+      // Direct scroll for better trackpad response
+      container.scrollLeft += evt.deltaY
     }
   })
 
-  // Arrow key navigation
-  container.addEventListener('keydown', (evt) => {
+  // Arrow key navigation (requires focus)
+  document.addEventListener('keydown', (evt) => {
+    // Only if not typing in an input
+    if (evt.target.tagName === 'INPUT' || evt.target.tagName === 'TEXTAREA') return
+    
     const scrollAmount = 300
     
     switch(evt.key) {
       case 'ArrowLeft':
-        smoothScroll(container, -scrollAmount, 300)
+        container.scrollLeft -= scrollAmount
         evt.preventDefault()
         break
       case 'ArrowRight':
-        smoothScroll(container, scrollAmount, 300)
+        container.scrollLeft += scrollAmount
         evt.preventDefault()
         break
       case 'Home':
-        smoothScroll(container, -container.scrollLeft, 500)
+        container.scrollLeft = 0
         evt.preventDefault()
         break
       case 'End':
-        smoothScroll(container, container.scrollWidth - container.scrollLeft, 500)
+        container.scrollLeft = container.scrollWidth
         evt.preventDefault()
         break
     }

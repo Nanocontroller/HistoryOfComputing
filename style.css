@@ -290,13 +290,16 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #080812;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   display: none;
   padding: 8px 18px;
   box-sizing: border-box;
   height: 100vh;
   overflow: auto;
   z-index:2;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
 }
 
 #popup-container h3 {
