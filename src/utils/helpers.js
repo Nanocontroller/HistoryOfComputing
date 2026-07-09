@@ -24,17 +24,12 @@ export function escapeHtml(text) {
  * @returns {string} - HTML string for image
  */
 export function generateImageAttributes(imageUrl, className, altText = '') {
-  const removeExtension = (filename) => filename.replace(/\.[^.]+$/, '')
-  const baseImageUrl = BASE_URL + removeExtension(imageUrl)
   const fullImageUrl = BASE_URL + imageUrl
   
+  // Simpler version - just use the main image
   return `
   <div class='image-container'>
-    <picture>
-      <source media="(max-width:480px)" srcset="${baseImageUrl}@0.25x.jpg">
-      <source media="(max-width:992px)" srcset="${baseImageUrl}@0.5x.jpg">
-      <img class="${className} zoom-image" src="${fullImageUrl}" alt="${escapeHtml(altText)}" loading="lazy">
-    </picture>
+    <img class="${className} zoom-image" src="${fullImageUrl}" alt="${escapeHtml(altText)}" loading="lazy">
   </div>
   `
 }
