@@ -26,3 +26,25 @@ function updateName(selectedLi) {
 }
 
 selectBtn.addEventListener("click", () => wrapper.classList.toggle("active"))
+
+// Sync dropdown with scroll position
+const dataContainer = document.getElementById('data-container')
+if (dataContainer) {
+  dataContainer.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('[id^="section-"]')
+    let currentDecade = '1940'
+    
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect()
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        const decade = section.id.replace('section-', '')
+        currentDecade = decade
+      }
+    })
+    
+    // Update dropdown text
+    if (selectBtn.firstElementChild.innerText !== currentDecade) {
+      selectBtn.firstElementChild.innerText = currentDecade
+    }
+  })
+}
