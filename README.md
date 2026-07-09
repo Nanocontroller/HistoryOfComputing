@@ -6,7 +6,7 @@
 
 An interactive timeline showcasing the history of computing at Argonne National Laboratory from 1940 to present.
 
-## ✨ Recent Updates (2024)
+## ✨ Recent Updates (2026)
 
 **Phase 2 Modernization Complete! ✅**
 
