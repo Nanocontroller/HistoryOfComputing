@@ -749,13 +749,13 @@ img {
   }
 
   #data-container {
-    margin-top: 80px;
+    margin-top: 0px;
+    padding-top: 60px;
     flex-direction: column;
-    padding-top: 10px;
     overflow-x: hidden !important;
     overflow-y: auto !important;
     width: 100% !important;
-    height: calc(100vh - 80px) !important;
+    height: 100vh !important;
   }
   .decade-intro-img {
     width: 100%;

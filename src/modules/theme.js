@@ -5,14 +5,31 @@
 import { state, setState } from './state.js'
 
 /**
- * Initialize theme system
+ * Initialize theme system with system preference detection
  */
 export function initTheme() {
-  // Apply saved theme or default
+  // Check for saved theme, otherwise use system preference
+  if (!localStorage.getItem('timeline-theme')) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    setState('theme', prefersDark ? 'dark' : 'light', false)
+  }
+  
+  // Apply theme
   document.documentElement.setAttribute('data-theme', state.theme)
   
   // Create theme toggle button
   createThemeToggle()
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('timeline-theme')) {
+      const newTheme = e.matches ? 'dark' : 'light'
+      setState('theme', newTheme)
+      document.documentElement.setAttribute('data-theme', newTheme)
+      const toggle = document.getElementById('theme-toggle')
+      if (toggle) updateThemeIcon(toggle)
+    }
+  })
 }
 
 /**
@@ -32,12 +49,8 @@ function createThemeToggle() {
   // Add click handler
   themeToggle.addEventListener('click', toggleTheme)
   
-  // Insert into header
-  const header = document.querySelector('.header')
-  const mainHeading = header.querySelector('.main-heading')
-  if (mainHeading) {
-    mainHeading.appendChild(themeToggle)
-  }
+  // Insert directly into body (fixed position via CSS)
+  document.body.appendChild(themeToggle)
 }
 
 /**
