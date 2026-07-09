@@ -389,6 +389,16 @@ img {
   transition: all 0.2s ease;
 }
 
+@media screen and (max-width:768px) {
+  #close-popup {
+    font-size: 11px;
+    padding: 4px 10px;
+    top: 8px;
+    right: 8px;
+    letter-spacing: 0.5px;
+  }
+}
+
 #close-popup:hover {
   background: #b8e2de;
   color: #080812;

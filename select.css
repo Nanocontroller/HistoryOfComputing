@@ -21,7 +21,7 @@
 
 }
 .select-btn span:nth-child(2){
- font-size: 31px;
+ font-size: 37px;
  transition: transform 0.3s linear;
 }
 .wrapper.active .select-btn span:nth-child(2){

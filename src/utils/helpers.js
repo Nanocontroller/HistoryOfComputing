@@ -2,7 +2,8 @@
  * Utility functions
  */
 
-export const BASE_URL = 'https://raw.githubusercontent.com/Nanocontroller/HistoryOfComputing/main/images'
+// Use relative path for deployment
+export const BASE_URL = './images'
 
 /**
  * Escape HTML to prevent XSS attacks
